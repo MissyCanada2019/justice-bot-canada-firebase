@@ -60,7 +60,12 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        sans: ["var(--font-inter)", "system-ui", "Segoe UI", "Roboto", "Arial", "sans-serif"],
+        headline: ["var(--font-inter)", "system-ui", "Segoe UI", "Roboto", "Arial", "sans-serif"],
+      },
+      colors: {
+        canada: { red: "#d32d2d", redDark: "#a31111" },
+        ...colors, // Keep existing colors
       },
       keyframes: {
         "accordion-down": {
