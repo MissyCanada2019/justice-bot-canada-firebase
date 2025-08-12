@@ -1,65 +1,34 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { PlusCircle, ExternalLink } from "lucide-react";
-import { mockCases } from "@/lib/mock-data";
 
-export default function DashboardPage() {
-  const activeCases = mockCases.filter(c => c.status === 'Active');
+"use client";
+import { useEffect, useState } from "react";
+import { Auth, Cases } from "@/lib/api";
+import { Section } from "@/components/ui/section";
 
+export default function Dashboard(){
+  const [me,setMe]=useState<any>(null);
+  const [cases,setCases]=useState<any[]>([]);
+  const [title,setTitle]=useState(""); const [issue,setIssue]=useState("");
+  useEffect(()=>{ (async()=>{ try{ setMe(await Auth.me()); setCases((await Cases.list()).cases); } catch{} })(); },[]);
+  async function create(){ await Cases.create(title,issue); setCases((await Cases.list()).cases); }
   return (
     <div className="container mx-auto">
-      <div className="flex items-center justify-between mb-8">
-        <div className="space-y-1">
-          <h1 className="text-3xl font-bold font-headline">Case Dashboard</h1>
-          <p className="text-muted-foreground">Welcome back! Here are your active cases.</p>
+      <Section title="Your Account">
+        <div className="badge">{me?.email || "Not logged in"}</div>
+      </Section>
+      <Section title="Cases">
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="card">
+            <div className="mb-2">Create a new case</div>
+            <input className="input mb-2" placeholder="Title" value={title} onChange={e=>setTitle(e.target.value)} />
+            <textarea className="input mb-2" rows={3} placeholder="Describe issue…" value={issue} onChange={e=>setIssue(e.target.value)} />
+            <button className="btn" onClick={create}>Create</button>
+          </div>
+          <div className="card">
+            {cases.length===0? <div>No cases yet.</div> :
+              <ul className="space-y-2">{cases.map(c=><li key={c.id} className="card"><b>{c.title}</b><div className="opacity-70">{c.status}</div></li>)}</ul>}
+          </div>
         </div>
-        <Button asChild>
-          <Link href="/dashboard/triage">
-            <PlusCircle className="mr-2 h-4 w-4" />
-            New Case
-          </Link>
-        </Button>
-      </div>
-
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {activeCases.map((caseItem) => (
-          <Card key={caseItem.id} className="flex flex-col">
-            <CardHeader>
-              <CardTitle className="text-lg">{caseItem.title}</CardTitle>
-              <CardDescription>Last activity: {caseItem.lastActivity}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <div className="flex items-center gap-2">
-                <Badge variant={caseItem.status === 'Active' ? 'default' : 'secondary'}>{caseItem.status}</Badge>
-                <p className="text-sm text-muted-foreground">{caseItem.triageOutput.issueType}</p>
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button asChild className="w-full">
-                <Link href={`/dashboard/case/${caseItem.id}`}>
-                  View Details <ExternalLink className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-         <Card className="flex flex-col items-center justify-center border-dashed border-2 text-center p-6">
-            <CardHeader>
-                <CardTitle className="text-lg">Start a New Case</CardTitle>
-                <CardDescription>Get an AI-powered analysis of your legal issue.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                 <Button asChild>
-                    <Link href="/dashboard/triage">
-                        <PlusCircle className="mr-2 h-4 w-4" />
-                        Start Triage
-                    </Link>
-                </Button>
-            </CardContent>
-         </Card>
-      </div>
+      </Section>
     </div>
   );
 }
