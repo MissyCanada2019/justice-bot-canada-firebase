@@ -1,15 +1,14 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useEffect, useRef } from 'react';
+import { useFormStatus } from 'react-dom';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { handleTriage } from '@/lib/actions';
-import { useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
-import { Terminal, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const initialState = {
@@ -34,7 +33,7 @@ function SubmitButton() {
 }
 
 export function TriageForm() {
-  const [state, dispatch] = useFormState(handleTriage, initialState);
+  const [state, dispatch] = useActionState(handleTriage, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
   const router = useRouter();
