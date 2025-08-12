@@ -8,6 +8,7 @@ import {
   Settings,
   LogOut,
   ChevronDown,
+  Upload,
 } from 'lucide-react';
 
 import {
@@ -34,6 +35,7 @@ import { Logo } from '@/components/logo';
 const menuItems = [
   { href: '/dashboard', label: 'Dashboard', icon: Home },
   { href: '/dashboard/triage', label: 'New Case', icon: FilePlus2 },
+  { href: '/dashboard/evidence', label: 'Evidence', icon: Upload },
 ];
 
 export function DashboardSidebar() {
