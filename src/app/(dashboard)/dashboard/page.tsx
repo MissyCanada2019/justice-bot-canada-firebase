@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Auth, Cases } from "@/lib/api";
 import { Section } from "@/components/ui/section";
+import Link from "next/link";
 
 export default function Dashboard(){
   const [me,setMe]=useState<any>(null);
@@ -25,7 +26,7 @@ export default function Dashboard(){
           </div>
           <div className="card">
             {cases.length===0? <div>No cases yet.</div> :
-              <ul className="space-y-2">{cases.map(c=><li key={c.id} className="card"><b>{c.title}</b><div className="opacity-70">{c.status}</div></li>)}</ul>}
+              <ul className="space-y-2">{cases.map(c=><li key={c.id} className="card"><Link href={`/case/${c.id}`}><b>{c.title}</b></Link><div className="opacity-70">{c.status}</div></li>)}</ul>}
           </div>
         </div>
       </Section>
