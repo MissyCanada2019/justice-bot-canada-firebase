@@ -19,7 +19,15 @@ const LegalTriageInputSchema = z.object({
 export type LegalTriageInput = z.infer<typeof LegalTriageInputSchema>;
 
 const LegalTriageOutputSchema = z.object({
-  issueType: z.string().describe('The classification of the legal issue (tenancy, HR, family, etc.).'),
+  issueType: z.enum([
+      'Landlord and Tenant',
+      'Employment',
+      'Family Law',
+      'Small Claims',
+      'Human Rights',
+      'Child Protection',
+      'Other',
+    ]).describe('The classification of the legal issue.'),
   keyFacts: z.string().describe('Key facts extracted from the issue description.'),
   canLIIQuery: z.string().describe('A CanLII search query for similar cases.'),
 });
@@ -33,7 +41,7 @@ const prompt = ai.definePrompt({
   name: 'legalTriagePrompt',
   input: {schema: LegalTriageInputSchema},
   output: {schema: LegalTriageOutputSchema},
-  prompt: `You are a legal expert specializing in Canadian law. A user will describe their legal issue.  You will classify the issue (tenancy, HR, family, etc.), extract key facts, and generate a CanLII search query for similar cases.
+  prompt: `You are a legal expert specializing in Canadian law. A user will describe their legal issue.  You will classify the issue into one of the following categories: 'Landlord and Tenant', 'Employment', 'Family Law', 'Small Claims', 'Human Rights', 'Child Protection', or 'Other'. You will also extract key facts and generate a CanLII search query for similar cases.
 
 Issue Description: {{{issueDescription}}}
 

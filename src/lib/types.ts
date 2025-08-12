@@ -1,4 +1,5 @@
 import type { LegalTriageOutput } from "@/ai/flows/legal-triage";
+import type { GenerateLegalJourneyOutput } from "@/ai/flows/generate-legal-journey";
 
 export type TimelineEvent = {
   id: string;
@@ -21,6 +22,7 @@ export type Case = {
   status: 'Active' | 'Closed' | 'Pending';
   lastActivity: string;
   triageOutput: LegalTriageOutput;
+  journey?: GenerateLegalJourneyOutput;
   timeline: TimelineEvent[];
   forms: RecommendedForm[];
 };

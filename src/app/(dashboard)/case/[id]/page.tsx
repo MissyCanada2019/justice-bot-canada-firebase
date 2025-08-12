@@ -3,15 +3,20 @@ import { getCaseById } from '@/lib/mock-data';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { FileText, GitBranch, MessageSquare, Scale, Briefcase, Home, Users } from 'lucide-react';
+import { FileText, GitBranch, MessageSquare, Scale, Briefcase, Home, Users, Shield, ShieldCheck, HeartHandshake, FileSearch } from 'lucide-react';
 import type { TimelineEvent } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Progress } from '@/components/ui/progress';
 
 const iconMap: { [key: string]: React.ReactNode } = {
   'Employment': <Briefcase className="h-6 w-6" />,
   'Landlord and Tenant': <Home className="h-6 w-6" />,
   'Family Law': <Users className="h-6 w-6" />,
+  'Small Claims': <FileSearch className="h-6 w-6" />,
+  'Human Rights': <HeartHandshake className="h-6 w-6" />,
+  'Child Protection': <Shield className="h-6 w-6" />,
+  'Other': <Scale className="h-6 w-6" />,
   'default': <Scale className="h-6 w-6" />,
 };
 
@@ -61,28 +66,49 @@ export default function CaseDetailPage({ params }: { params: { id: string } }) {
           <TabsTrigger value="assistant"><MessageSquare className="h-4 w-4 mr-2" />Assistant</TabsTrigger>
         </TabsList>
         <TabsContent value="overview">
-          <Card>
-            <CardHeader>
-              <CardTitle>Case Overview</CardTitle>
-              <CardDescription>AI-generated summary of your legal issue.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <h3 className="font-semibold">Key Facts</h3>
-                <p className="text-muted-foreground whitespace-pre-wrap">{caseData.triageOutput.keyFacts}</p>
-              </div>
-              <div>
-                <h3 className="font-semibold">Suggested CanLII Search Query</h3>
-                <p className="text-muted-foreground font-mono text-sm">{caseData.triageOutput.canLIIQuery}</p>
-              </div>
-            </CardContent>
-          </Card>
+            <div className="grid gap-6 md:grid-cols-2">
+                <Card>
+                    <CardHeader>
+                    <CardTitle>Case Overview</CardTitle>
+                    <CardDescription>AI-generated summary of your legal issue.</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                    <div>
+                        <h3 className="font-semibold">Key Facts</h3>
+                        <p className="text-muted-foreground whitespace-pre-wrap">{caseData.triageOutput.keyFacts}</p>
+                    </div>
+                    <div>
+                        <h3 className="font-semibold">Suggested CanLII Search Query</h3>
+                        <p className="text-muted-foreground font-mono text-sm">{caseData.triageOutput.canLIIQuery}</p>
+                    </div>
+                    </CardContent>
+                </Card>
+                 <Card>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <ShieldCheck className="h-6 w-6 text-primary" />
+                            Merit Assessment
+                        </CardTitle>
+                        <CardDescription>AI-powered analysis of your case's potential strengths.</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <div>
+                            <h3 className="font-semibold">Merit Score: {caseData.journey?.meritScore}/10</h3>
+                            <Progress value={caseData.journey ? caseData.journey.meritScore * 10 : 0} className="mt-2" />
+                        </div>
+                        <div>
+                            <h3 className="font-semibold">Justification</h3>
+                            <p className="text-muted-foreground">{caseData.journey?.meritJustification}</p>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
         </TabsContent>
         <TabsContent value="timeline">
           <Card>
             <CardHeader>
-              <CardTitle>Case Timeline</CardTitle>
-              <CardDescription>A chronological view of events and deadlines for your case.</CardDescription>
+              <CardTitle>Legal Journey</CardTitle>
+              <CardDescription>A chronological, AI-generated timeline of potential events and deadlines for your case.</CardDescription>
             </CardHeader>
             <CardContent>
               {caseData.timeline.map((event, index) => (
@@ -109,6 +135,9 @@ export default function CaseDetailPage({ params }: { params: { id: string } }) {
                   </Button>
                 </div>
               ))}
+                {caseData.forms.length === 0 && (
+                    <p className="text-muted-foreground col-span-2">No forms have been recommended for this case type yet.</p>
+                )}
             </CardContent>
           </Card>
         </TabsContent>

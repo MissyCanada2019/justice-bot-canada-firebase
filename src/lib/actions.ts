@@ -1,7 +1,10 @@
 'use server';
 
 import { legalTriage, type LegalTriageOutput } from '@/ai/flows/legal-triage';
+import { generateLegalJourney, type GenerateLegalJourneyOutput } from '@/ai/flows/generate-legal-journey';
 import { z } from 'zod';
+import { redirect } from 'next/navigation';
+import { addCase, getCaseCount } from './mock-data';
 
 const TriageFormSchema = z.object({
   issueDescription: z.string().min(20, { message: "Please describe your issue in at least 20 characters." }),
@@ -12,7 +15,10 @@ export type TriageFormState = {
     issueDescription?: string[];
   };
   message?: string | null;
-  data?: LegalTriageOutput | null;
+  data?: {
+    triage: LegalTriageOutput;
+    journey: GenerateLegalJourneyOutput;
+  } | null;
 };
 
 export async function handleTriage(prevState: TriageFormState, formData: FormData): Promise<TriageFormState> {
@@ -28,14 +34,30 @@ export async function handleTriage(prevState: TriageFormState, formData: FormDat
   }
   
   try {
-    const result = await legalTriage({ issueDescription: validatedFields.data.issueDescription });
-    
+    const triageResult = await legalTriage({ issueDescription: validatedFields.data.issueDescription });
+    const journeyResult = await generateLegalJourney({ triageOutput: triageResult });
+
+    const newCaseId = (await getCaseCount() + 1).toString();
+
+    addCase({
+      id: newCaseId,
+      title: `${triageResult.issueType} Matter`,
+      status: 'Active',
+      lastActivity: new Date().toISOString(),
+      triageOutput: triageResult,
+      journey: journeyResult,
+      timeline: journeyResult.timeline,
+      forms: [], // In a real app, you might generate forms too
+    });
+
     // In a real app, you would save this to a database and create a new case.
     // Here we just return the data to the client component.
-    return { message: 'Triage complete.', data: result, errors: {} };
-
+    // return { message: 'Triage complete.', data: { triage: triageResult, journey: journeyResult }, errors: {} };
   } catch (error) {
     console.error('Triage Error:', error);
     return { message: 'An error occurred during triage. Please try again.', data: null, errors: {}};
   }
+
+  // Redirect to the dashboard after successful submission
+  redirect('/dashboard');
 }
