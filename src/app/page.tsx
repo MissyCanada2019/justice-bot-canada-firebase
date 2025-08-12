@@ -1,17 +1,17 @@
-import Link from "next/link";
+import { TriageForm } from "@/components/triage-form";
 
 export default function Home() {
   return (
-    <div className="grid gap-5">
-      <div className="card">
-        <h1 className="text-2xl font-bold mb-2">Justice-Bot Canada 🇨🇦</h1>
-        <p className="opacity-80">Plain-language triage, form helper, timeline, and evidence management.</p>
+    <main className="container max-w-3xl mx-auto py-12 md:py-24">
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight font-headline mb-4">
+          Navigate Canadian Law with Confidence
+        </h1>
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          JusticeBot is an AI-powered legal assistant designed to help you understand your rights, generate legal documents, and manage your case—all in plain language.
+        </p>
       </div>
-      <div className="grid md:grid-cols-3 gap-5">
-        <Link className="card hover:ring-2 ring-canada-red" href="/triage"><b>AI Legal Triage</b><p className="opacity-70">Classify your issue and get next steps.</p></Link>
-        <Link className="card hover:ring-2 ring-canada-red" href="/forms"><b>Form Helper</b><p className="opacity-70">Recommend and prefill forms.</p></Link>
-        <Link className="card hover:ring-2 ring-canada-red" href="/timeline"><b>Case Timeline</b><p className="opacity-70">Stay on top of deadlines.</p></Link>
-      </div>
-    </div>
+      <TriageForm />
+    </main>
   );
 }
