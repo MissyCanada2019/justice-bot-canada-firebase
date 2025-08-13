@@ -1,0 +1,50 @@
+type User @table {
+  displayName: String!
+  email: String!
+  createdAt: Timestamp!
+  photoUrl: String
+  contactNumber: String
+  address: String
+}
+
+type LegalFormType @table {
+  name: String!
+  formNumber: String!
+  category: String!
+  jurisdiction: String!
+  createdAt: Timestamp!
+  description: String
+  officialLink: String
+  guidanceNotes: String
+}
+
+type UserFormInstance @table {
+  formName: String!
+  status: String!
+  createdAt: Timestamp!
+  updatedAt: Timestamp!
+  formData: String
+  fileName: String
+  submissionDate: Timestamp
+  dueDate: Timestamp
+  user: User
+  legalFormType: LegalFormType
+}
+
+type FormVersion @table {
+  versionNumber: Int!
+  createdAt: Timestamp!
+  formData: String!
+  statusAtVersion: String!
+  notes: String
+  userFormInstance: UserFormInstance
+}
+
+type Notification @table {
+  message: String!
+  type: String!
+  isRead: Boolean!
+  createdAt: Timestamp!
+  relatedFormInstanceId: UUID
+  user: User
+}

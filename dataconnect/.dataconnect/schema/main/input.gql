@@ -1,0 +1,1517 @@
+"""
+✨ `FormVersion_KeyOutput` returns the primary key fields of table type `FormVersion`.
+
+It has the same format as `FormVersion_Key`, but is only used as mutation return value.
+"""
+scalar FormVersion_KeyOutput
+"""
+✨ `LegalFormType_KeyOutput` returns the primary key fields of table type `LegalFormType`.
+
+It has the same format as `LegalFormType_Key`, but is only used as mutation return value.
+"""
+scalar LegalFormType_KeyOutput
+"""
+✨ `Notification_KeyOutput` returns the primary key fields of table type `Notification`.
+
+It has the same format as `Notification_Key`, but is only used as mutation return value.
+"""
+scalar Notification_KeyOutput
+"""
+✨ `User_KeyOutput` returns the primary key fields of table type `User`.
+
+It has the same format as `User_Key`, but is only used as mutation return value.
+"""
+scalar User_KeyOutput
+"""
+✨ `UserFormInstance_KeyOutput` returns the primary key fields of table type `UserFormInstance`.
+
+It has the same format as `UserFormInstance_Key`, but is only used as mutation return value.
+"""
+scalar UserFormInstance_KeyOutput
+"""
+✨ Generated data input type for table 'FormVersion'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input FormVersion_Data {
+  """
+  ✨ Generated from Field `FormVersion`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `FormVersion`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `FormVersion`.`userFormInstanceId` of type `UUID`
+  """
+  userFormInstanceId: UUID
+  """
+  ✨ `_expr` server value variant of `userFormInstanceId` (✨ Generated from Field `FormVersion`.`userFormInstanceId` of type `UUID`)
+  """
+  userFormInstanceId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `FormVersion`.`userFormInstance` of type `UserFormInstance`
+  """
+  userFormInstance: UserFormInstance_Key
+  """
+  ✨ Generated from Field `FormVersion`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `createdAt` (✨ Generated from Field `FormVersion`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `createdAt` (✨ Generated from Field `FormVersion`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `createdAt` (✨ Generated from Field `FormVersion`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_update: [Timestamp_Update!]
+  """
+  ✨ Generated from Field `FormVersion`.`formData` of type `String!`
+  """
+  formData: String
+  """
+  ✨ `_expr` server value variant of `formData` (✨ Generated from Field `FormVersion`.`formData` of type `String!`)
+  """
+  formData_expr: String_Expr
+  """
+  ✨ Generated from Field `FormVersion`.`notes` of type `String`
+  """
+  notes: String
+  """
+  ✨ `_expr` server value variant of `notes` (✨ Generated from Field `FormVersion`.`notes` of type `String`)
+  """
+  notes_expr: String_Expr
+  """
+  ✨ Generated from Field `FormVersion`.`statusAtVersion` of type `String!`
+  """
+  statusAtVersion: String
+  """
+  ✨ `_expr` server value variant of `statusAtVersion` (✨ Generated from Field `FormVersion`.`statusAtVersion` of type `String!`)
+  """
+  statusAtVersion_expr: String_Expr
+  """
+  ✨ Generated from Field `FormVersion`.`versionNumber` of type `Int!`
+  """
+  versionNumber: Int
+  """
+  ✨ `_expr` server value variant of `versionNumber` (✨ Generated from Field `FormVersion`.`versionNumber` of type `Int!`)
+  """
+  versionNumber_expr: Int_Expr
+  """
+  ✨ `_update` server value variant of `versionNumber` (✨ Generated from Field `FormVersion`.`versionNumber` of type `Int!`)
+  """
+  versionNumber_update: [Int_Update!]
+}
+"""
+✨ Generated filter input type for table 'FormVersion'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input FormVersion_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [FormVersion_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: FormVersion_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [FormVersion_Filter!]
+  """
+  ✨ Generated from Field `FormVersion`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`userFormInstanceId` of type `UUID`
+  """
+  userFormInstanceId: UUID_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`userFormInstance` of type `UserFormInstance`
+  """
+  userFormInstance: UserFormInstance_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`formData` of type `String!`
+  """
+  formData: String_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`notes` of type `String`
+  """
+  notes: String_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`statusAtVersion` of type `String!`
+  """
+  statusAtVersion: String_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`versionNumber` of type `Int!`
+  """
+  versionNumber: Int_Filter
+}
+"""
+✨ Generated first-row input type for table 'FormVersion'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input FormVersion_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [FormVersion_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: FormVersion_Filter
+}
+"""
+✨ Generated having input type for table 'FormVersion'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input FormVersion_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [FormVersion_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: FormVersion_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [FormVersion_Having!]
+  """
+  ✨ Generated from Field `FormVersion`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: Int_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`formData_count` of type `Int!`
+  """
+  formData_count: Int_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`notes_count` of type `Int!`
+  """
+  notes_count: Int_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`statusAtVersion_count` of type `Int!`
+  """
+  statusAtVersion_count: Int_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`userFormInstanceId_count` of type `Int!`
+  """
+  userFormInstanceId_count: Int_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`versionNumber_count` of type `Int!`
+  """
+  versionNumber_count: Int_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`versionNumber_sum` of type `Int`
+  """
+  versionNumber_sum: Int_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`versionNumber_avg` of type `Float`
+  """
+  versionNumber_avg: Float_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`versionNumber_min` of type `Int`
+  """
+  versionNumber_min: Int_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: Timestamp_Filter
+  """
+  ✨ Generated from Field `FormVersion`.`versionNumber_max` of type `Int`
+  """
+  versionNumber_max: Int_Filter
+}
+"""
+✨ Generated key input type for table 'FormVersion'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input FormVersion_Key {
+  """
+  ✨ Generated from Field `FormVersion`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `FormVersion`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'FormVersion'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input FormVersion_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: FormVersion_Filter
+}
+"""
+✨ Generated order input type for table 'FormVersion'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input FormVersion_Order {
+  """
+  ✨ Generated from Field `FormVersion`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `FormVersion`.`userFormInstanceId` of type `UUID`
+  """
+  userFormInstanceId: OrderDirection
+  """
+  ✨ Generated from Field `FormVersion`.`userFormInstance` of type `UserFormInstance`
+  """
+  userFormInstance: UserFormInstance_Order
+  """
+  ✨ Generated from Field `FormVersion`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: OrderDirection
+  """
+  ✨ Generated from Field `FormVersion`.`formData` of type `String!`
+  """
+  formData: OrderDirection
+  """
+  ✨ Generated from Field `FormVersion`.`notes` of type `String`
+  """
+  notes: OrderDirection
+  """
+  ✨ Generated from Field `FormVersion`.`statusAtVersion` of type `String!`
+  """
+  statusAtVersion: OrderDirection
+  """
+  ✨ Generated from Field `FormVersion`.`versionNumber` of type `Int!`
+  """
+  versionNumber: OrderDirection
+}
+"""
+✨ Generated data input type for table 'LegalFormType'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input LegalFormType_Data {
+  """
+  ✨ Generated from Field `LegalFormType`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `LegalFormType`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `LegalFormType`.`category` of type `String!`
+  """
+  category: String
+  """
+  ✨ `_expr` server value variant of `category` (✨ Generated from Field `LegalFormType`.`category` of type `String!`)
+  """
+  category_expr: String_Expr
+  """
+  ✨ Generated from Field `LegalFormType`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `createdAt` (✨ Generated from Field `LegalFormType`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `createdAt` (✨ Generated from Field `LegalFormType`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `createdAt` (✨ Generated from Field `LegalFormType`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_update: [Timestamp_Update!]
+  """
+  ✨ Generated from Field `LegalFormType`.`description` of type `String`
+  """
+  description: String
+  """
+  ✨ `_expr` server value variant of `description` (✨ Generated from Field `LegalFormType`.`description` of type `String`)
+  """
+  description_expr: String_Expr
+  """
+  ✨ Generated from Field `LegalFormType`.`formNumber` of type `String!`
+  """
+  formNumber: String
+  """
+  ✨ `_expr` server value variant of `formNumber` (✨ Generated from Field `LegalFormType`.`formNumber` of type `String!`)
+  """
+  formNumber_expr: String_Expr
+  """
+  ✨ Generated from Field `LegalFormType`.`guidanceNotes` of type `String`
+  """
+  guidanceNotes: String
+  """
+  ✨ `_expr` server value variant of `guidanceNotes` (✨ Generated from Field `LegalFormType`.`guidanceNotes` of type `String`)
+  """
+  guidanceNotes_expr: String_Expr
+  """
+  ✨ Generated from Field `LegalFormType`.`jurisdiction` of type `String!`
+  """
+  jurisdiction: String
+  """
+  ✨ `_expr` server value variant of `jurisdiction` (✨ Generated from Field `LegalFormType`.`jurisdiction` of type `String!`)
+  """
+  jurisdiction_expr: String_Expr
+  """
+  ✨ Generated from Field `LegalFormType`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `LegalFormType`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+  """
+  ✨ Generated from Field `LegalFormType`.`officialLink` of type `String`
+  """
+  officialLink: String
+  """
+  ✨ `_expr` server value variant of `officialLink` (✨ Generated from Field `LegalFormType`.`officialLink` of type `String`)
+  """
+  officialLink_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'LegalFormType'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input LegalFormType_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [LegalFormType_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: LegalFormType_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [LegalFormType_Filter!]
+  """
+  ✨ Generated from Field `LegalFormType`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`category` of type `String!`
+  """
+  category: String_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`description` of type `String`
+  """
+  description: String_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`formNumber` of type `String!`
+  """
+  formNumber: String_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`guidanceNotes` of type `String`
+  """
+  guidanceNotes: String_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`jurisdiction` of type `String!`
+  """
+  jurisdiction: String_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`name` of type `String!`
+  """
+  name: String_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`officialLink` of type `String`
+  """
+  officialLink: String_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`userFormInstances_on_legalFormType` of type `[UserFormInstance!]!`
+  """
+  userFormInstances_on_legalFormType: UserFormInstance_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'LegalFormType'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input LegalFormType_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [LegalFormType_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: LegalFormType_Filter
+}
+"""
+✨ Generated having input type for table 'LegalFormType'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input LegalFormType_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [LegalFormType_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: LegalFormType_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [LegalFormType_Having!]
+  """
+  ✨ Generated from Field `LegalFormType`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`category_count` of type `Int!`
+  """
+  category_count: Int_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: Int_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`description_count` of type `Int!`
+  """
+  description_count: Int_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`formNumber_count` of type `Int!`
+  """
+  formNumber_count: Int_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`guidanceNotes_count` of type `Int!`
+  """
+  guidanceNotes_count: Int_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`jurisdiction_count` of type `Int!`
+  """
+  jurisdiction_count: Int_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`name_count` of type `Int!`
+  """
+  name_count: Int_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`officialLink_count` of type `Int!`
+  """
+  officialLink_count: Int_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `LegalFormType`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: Timestamp_Filter
+}
+"""
+✨ Generated key input type for table 'LegalFormType'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input LegalFormType_Key {
+  """
+  ✨ Generated from Field `LegalFormType`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `LegalFormType`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'LegalFormType'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input LegalFormType_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: LegalFormType_Filter
+}
+"""
+✨ Generated order input type for table 'LegalFormType'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input LegalFormType_Order {
+  """
+  ✨ Generated from Field `LegalFormType`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `LegalFormType`.`category` of type `String!`
+  """
+  category: OrderDirection
+  """
+  ✨ Generated from Field `LegalFormType`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: OrderDirection
+  """
+  ✨ Generated from Field `LegalFormType`.`description` of type `String`
+  """
+  description: OrderDirection
+  """
+  ✨ Generated from Field `LegalFormType`.`formNumber` of type `String!`
+  """
+  formNumber: OrderDirection
+  """
+  ✨ Generated from Field `LegalFormType`.`guidanceNotes` of type `String`
+  """
+  guidanceNotes: OrderDirection
+  """
+  ✨ Generated from Field `LegalFormType`.`jurisdiction` of type `String!`
+  """
+  jurisdiction: OrderDirection
+  """
+  ✨ Generated from Field `LegalFormType`.`name` of type `String!`
+  """
+  name: OrderDirection
+  """
+  ✨ Generated from Field `LegalFormType`.`officialLink` of type `String`
+  """
+  officialLink: OrderDirection
+}
+"""
+✨ Generated data input type for table 'Notification'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Notification_Data {
+  """
+  ✨ Generated from Field `Notification`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Notification`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Notification`.`userId` of type `UUID`
+  """
+  userId: UUID
+  """
+  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `Notification`.`userId` of type `UUID`)
+  """
+  userId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Notification`.`user` of type `User`
+  """
+  user: User_Key
+  """
+  ✨ Generated from Field `Notification`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `createdAt` (✨ Generated from Field `Notification`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `createdAt` (✨ Generated from Field `Notification`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `createdAt` (✨ Generated from Field `Notification`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_update: [Timestamp_Update!]
+  """
+  ✨ Generated from Field `Notification`.`isRead` of type `Boolean!`
+  """
+  isRead: Boolean
+  """
+  ✨ `_expr` server value variant of `isRead` (✨ Generated from Field `Notification`.`isRead` of type `Boolean!`)
+  """
+  isRead_expr: Boolean_Expr
+  """
+  ✨ Generated from Field `Notification`.`message` of type `String!`
+  """
+  message: String
+  """
+  ✨ `_expr` server value variant of `message` (✨ Generated from Field `Notification`.`message` of type `String!`)
+  """
+  message_expr: String_Expr
+  """
+  ✨ Generated from Field `Notification`.`relatedFormInstanceId` of type `UUID`
+  """
+  relatedFormInstanceId: UUID
+  """
+  ✨ `_expr` server value variant of `relatedFormInstanceId` (✨ Generated from Field `Notification`.`relatedFormInstanceId` of type `UUID`)
+  """
+  relatedFormInstanceId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Notification`.`type` of type `String!`
+  """
+  type: String
+  """
+  ✨ `_expr` server value variant of `type` (✨ Generated from Field `Notification`.`type` of type `String!`)
+  """
+  type_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Notification'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Notification_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Notification_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Notification_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Notification_Filter!]
+  """
+  ✨ Generated from Field `Notification`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Notification`.`userId` of type `UUID`
+  """
+  userId: UUID_Filter
+  """
+  ✨ Generated from Field `Notification`.`user` of type `User`
+  """
+  user: User_Filter
+  """
+  ✨ Generated from Field `Notification`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp_Filter
+  """
+  ✨ Generated from Field `Notification`.`isRead` of type `Boolean!`
+  """
+  isRead: Boolean_Filter
+  """
+  ✨ Generated from Field `Notification`.`message` of type `String!`
+  """
+  message: String_Filter
+  """
+  ✨ Generated from Field `Notification`.`relatedFormInstanceId` of type `UUID`
+  """
+  relatedFormInstanceId: UUID_Filter
+  """
+  ✨ Generated from Field `Notification`.`type` of type `String!`
+  """
+  type: String_Filter
+}
+"""
+✨ Generated first-row input type for table 'Notification'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Notification_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Notification_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Notification_Filter
+}
+"""
+✨ Generated having input type for table 'Notification'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Notification_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [Notification_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: Notification_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [Notification_Having!]
+  """
+  ✨ Generated from Field `Notification`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `Notification`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: Int_Filter
+  """
+  ✨ Generated from Field `Notification`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `Notification`.`isRead_count` of type `Int!`
+  """
+  isRead_count: Int_Filter
+  """
+  ✨ Generated from Field `Notification`.`message_count` of type `Int!`
+  """
+  message_count: Int_Filter
+  """
+  ✨ Generated from Field `Notification`.`relatedFormInstanceId_count` of type `Int!`
+  """
+  relatedFormInstanceId_count: Int_Filter
+  """
+  ✨ Generated from Field `Notification`.`type_count` of type `Int!`
+  """
+  type_count: Int_Filter
+  """
+  ✨ Generated from Field `Notification`.`userId_count` of type `Int!`
+  """
+  userId_count: Int_Filter
+  """
+  ✨ Generated from Field `Notification`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `Notification`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: Timestamp_Filter
+}
+"""
+✨ Generated key input type for table 'Notification'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Notification_Key {
+  """
+  ✨ Generated from Field `Notification`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Notification`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Notification'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Notification_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Notification_Filter
+}
+"""
+✨ Generated order input type for table 'Notification'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Notification_Order {
+  """
+  ✨ Generated from Field `Notification`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Notification`.`userId` of type `UUID`
+  """
+  userId: OrderDirection
+  """
+  ✨ Generated from Field `Notification`.`user` of type `User`
+  """
+  user: User_Order
+  """
+  ✨ Generated from Field `Notification`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: OrderDirection
+  """
+  ✨ Generated from Field `Notification`.`isRead` of type `Boolean!`
+  """
+  isRead: OrderDirection
+  """
+  ✨ Generated from Field `Notification`.`message` of type `String!`
+  """
+  message: OrderDirection
+  """
+  ✨ Generated from Field `Notification`.`relatedFormInstanceId` of type `UUID`
+  """
+  relatedFormInstanceId: OrderDirection
+  """
+  ✨ Generated from Field `Notification`.`type` of type `String!`
+  """
+  type: OrderDirection
+}
+"""
+✨ Generated data input type for table 'User'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input User_Data {
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `User`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `User`.`address` of type `String`
+  """
+  address: String
+  """
+  ✨ `_expr` server value variant of `address` (✨ Generated from Field `User`.`address` of type `String`)
+  """
+  address_expr: String_Expr
+  """
+  ✨ Generated from Field `User`.`contactNumber` of type `String`
+  """
+  contactNumber: String
+  """
+  ✨ `_expr` server value variant of `contactNumber` (✨ Generated from Field `User`.`contactNumber` of type `String`)
+  """
+  contactNumber_expr: String_Expr
+  """
+  ✨ Generated from Field `User`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `createdAt` (✨ Generated from Field `User`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `createdAt` (✨ Generated from Field `User`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `createdAt` (✨ Generated from Field `User`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_update: [Timestamp_Update!]
+  """
+  ✨ Generated from Field `User`.`displayName` of type `String!`
+  """
+  displayName: String
+  """
+  ✨ `_expr` server value variant of `displayName` (✨ Generated from Field `User`.`displayName` of type `String!`)
+  """
+  displayName_expr: String_Expr
+  """
+  ✨ Generated from Field `User`.`email` of type `String!`
+  """
+  email: String
+  """
+  ✨ `_expr` server value variant of `email` (✨ Generated from Field `User`.`email` of type `String!`)
+  """
+  email_expr: String_Expr
+  """
+  ✨ Generated from Field `User`.`photoUrl` of type `String`
+  """
+  photoUrl: String
+  """
+  ✨ `_expr` server value variant of `photoUrl` (✨ Generated from Field `User`.`photoUrl` of type `String`)
+  """
+  photoUrl_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'User'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input User_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [User_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: User_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [User_Filter!]
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `User`.`address` of type `String`
+  """
+  address: String_Filter
+  """
+  ✨ Generated from Field `User`.`contactNumber` of type `String`
+  """
+  contactNumber: String_Filter
+  """
+  ✨ Generated from Field `User`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp_Filter
+  """
+  ✨ Generated from Field `User`.`displayName` of type `String!`
+  """
+  displayName: String_Filter
+  """
+  ✨ Generated from Field `User`.`email` of type `String!`
+  """
+  email: String_Filter
+  """
+  ✨ Generated from Field `User`.`photoUrl` of type `String`
+  """
+  photoUrl: String_Filter
+  """
+  ✨ Generated from Field `User`.`notifications_on_user` of type `[Notification!]!`
+  """
+  notifications_on_user: Notification_ListFilter
+  """
+  ✨ Generated from Field `User`.`userFormInstances_on_user` of type `[UserFormInstance!]!`
+  """
+  userFormInstances_on_user: UserFormInstance_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'User'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input User_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [User_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: User_Filter
+}
+"""
+✨ Generated having input type for table 'User'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input User_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [User_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: User_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [User_Having!]
+  """
+  ✨ Generated from Field `User`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`address_count` of type `Int!`
+  """
+  address_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`contactNumber_count` of type `Int!`
+  """
+  contactNumber_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`displayName_count` of type `Int!`
+  """
+  displayName_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`email_count` of type `Int!`
+  """
+  email_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`photoUrl_count` of type `Int!`
+  """
+  photoUrl_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `User`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: Timestamp_Filter
+}
+"""
+✨ Generated key input type for table 'User'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input User_Key {
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `User`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'User'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input User_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: User_Filter
+}
+"""
+✨ Generated order input type for table 'User'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input User_Order {
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `User`.`address` of type `String`
+  """
+  address: OrderDirection
+  """
+  ✨ Generated from Field `User`.`contactNumber` of type `String`
+  """
+  contactNumber: OrderDirection
+  """
+  ✨ Generated from Field `User`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: OrderDirection
+  """
+  ✨ Generated from Field `User`.`displayName` of type `String!`
+  """
+  displayName: OrderDirection
+  """
+  ✨ Generated from Field `User`.`email` of type `String!`
+  """
+  email: OrderDirection
+  """
+  ✨ Generated from Field `User`.`photoUrl` of type `String`
+  """
+  photoUrl: OrderDirection
+}
+"""
+✨ Generated data input type for table 'UserFormInstance'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input UserFormInstance_Data {
+  """
+  ✨ Generated from Field `UserFormInstance`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `UserFormInstance`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `UserFormInstance`.`legalFormTypeId` of type `UUID`
+  """
+  legalFormTypeId: UUID
+  """
+  ✨ `_expr` server value variant of `legalFormTypeId` (✨ Generated from Field `UserFormInstance`.`legalFormTypeId` of type `UUID`)
+  """
+  legalFormTypeId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `UserFormInstance`.`userId` of type `UUID`
+  """
+  userId: UUID
+  """
+  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `UserFormInstance`.`userId` of type `UUID`)
+  """
+  userId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `UserFormInstance`.`legalFormType` of type `LegalFormType`
+  """
+  legalFormType: LegalFormType_Key
+  """
+  ✨ Generated from Field `UserFormInstance`.`user` of type `User`
+  """
+  user: User_Key
+  """
+  ✨ Generated from Field `UserFormInstance`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `createdAt` (✨ Generated from Field `UserFormInstance`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `createdAt` (✨ Generated from Field `UserFormInstance`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `createdAt` (✨ Generated from Field `UserFormInstance`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_update: [Timestamp_Update!]
+  """
+  ✨ Generated from Field `UserFormInstance`.`dueDate` of type `Timestamp`
+  """
+  dueDate: Timestamp
+  """
+  ✨ `_expr` server value variant of `dueDate` (✨ Generated from Field `UserFormInstance`.`dueDate` of type `Timestamp`)
+  """
+  dueDate_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `dueDate` (✨ Generated from Field `UserFormInstance`.`dueDate` of type `Timestamp`)
+  """
+  dueDate_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `dueDate` (✨ Generated from Field `UserFormInstance`.`dueDate` of type `Timestamp`)
+  """
+  dueDate_update: [Timestamp_Update!]
+  """
+  ✨ Generated from Field `UserFormInstance`.`fileName` of type `String`
+  """
+  fileName: String
+  """
+  ✨ `_expr` server value variant of `fileName` (✨ Generated from Field `UserFormInstance`.`fileName` of type `String`)
+  """
+  fileName_expr: String_Expr
+  """
+  ✨ Generated from Field `UserFormInstance`.`formData` of type `String`
+  """
+  formData: String
+  """
+  ✨ `_expr` server value variant of `formData` (✨ Generated from Field `UserFormInstance`.`formData` of type `String`)
+  """
+  formData_expr: String_Expr
+  """
+  ✨ Generated from Field `UserFormInstance`.`formName` of type `String!`
+  """
+  formName: String
+  """
+  ✨ `_expr` server value variant of `formName` (✨ Generated from Field `UserFormInstance`.`formName` of type `String!`)
+  """
+  formName_expr: String_Expr
+  """
+  ✨ Generated from Field `UserFormInstance`.`status` of type `String!`
+  """
+  status: String
+  """
+  ✨ `_expr` server value variant of `status` (✨ Generated from Field `UserFormInstance`.`status` of type `String!`)
+  """
+  status_expr: String_Expr
+  """
+  ✨ Generated from Field `UserFormInstance`.`submissionDate` of type `Timestamp`
+  """
+  submissionDate: Timestamp
+  """
+  ✨ `_expr` server value variant of `submissionDate` (✨ Generated from Field `UserFormInstance`.`submissionDate` of type `Timestamp`)
+  """
+  submissionDate_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `submissionDate` (✨ Generated from Field `UserFormInstance`.`submissionDate` of type `Timestamp`)
+  """
+  submissionDate_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `submissionDate` (✨ Generated from Field `UserFormInstance`.`submissionDate` of type `Timestamp`)
+  """
+  submissionDate_update: [Timestamp_Update!]
+  """
+  ✨ Generated from Field `UserFormInstance`.`updatedAt` of type `Timestamp!`
+  """
+  updatedAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `updatedAt` (✨ Generated from Field `UserFormInstance`.`updatedAt` of type `Timestamp!`)
+  """
+  updatedAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `updatedAt` (✨ Generated from Field `UserFormInstance`.`updatedAt` of type `Timestamp!`)
+  """
+  updatedAt_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `updatedAt` (✨ Generated from Field `UserFormInstance`.`updatedAt` of type `Timestamp!`)
+  """
+  updatedAt_update: [Timestamp_Update!]
+}
+"""
+✨ Generated filter input type for table 'UserFormInstance'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input UserFormInstance_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [UserFormInstance_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: UserFormInstance_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [UserFormInstance_Filter!]
+  """
+  ✨ Generated from Field `UserFormInstance`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`legalFormTypeId` of type `UUID`
+  """
+  legalFormTypeId: UUID_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`userId` of type `UUID`
+  """
+  userId: UUID_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`legalFormType` of type `LegalFormType`
+  """
+  legalFormType: LegalFormType_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`user` of type `User`
+  """
+  user: User_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`dueDate` of type `Timestamp`
+  """
+  dueDate: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`fileName` of type `String`
+  """
+  fileName: String_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`formData` of type `String`
+  """
+  formData: String_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`formName` of type `String!`
+  """
+  formName: String_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`status` of type `String!`
+  """
+  status: String_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`submissionDate` of type `Timestamp`
+  """
+  submissionDate: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`updatedAt` of type `Timestamp!`
+  """
+  updatedAt: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`formVersions_on_userFormInstance` of type `[FormVersion!]!`
+  """
+  formVersions_on_userFormInstance: FormVersion_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'UserFormInstance'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input UserFormInstance_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [UserFormInstance_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: UserFormInstance_Filter
+}
+"""
+✨ Generated having input type for table 'UserFormInstance'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input UserFormInstance_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [UserFormInstance_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: UserFormInstance_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [UserFormInstance_Having!]
+  """
+  ✨ Generated from Field `UserFormInstance`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`dueDate_count` of type `Int!`
+  """
+  dueDate_count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`fileName_count` of type `Int!`
+  """
+  fileName_count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`formData_count` of type `Int!`
+  """
+  formData_count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`formName_count` of type `Int!`
+  """
+  formName_count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`legalFormTypeId_count` of type `Int!`
+  """
+  legalFormTypeId_count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`status_count` of type `Int!`
+  """
+  status_count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`submissionDate_count` of type `Int!`
+  """
+  submissionDate_count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`updatedAt_count` of type `Int!`
+  """
+  updatedAt_count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`userId_count` of type `Int!`
+  """
+  userId_count: Int_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`dueDate_min` of type `Timestamp`
+  """
+  dueDate_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`submissionDate_min` of type `Timestamp`
+  """
+  submissionDate_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`updatedAt_min` of type `Timestamp`
+  """
+  updatedAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`dueDate_max` of type `Timestamp`
+  """
+  dueDate_max: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`submissionDate_max` of type `Timestamp`
+  """
+  submissionDate_max: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserFormInstance`.`updatedAt_max` of type `Timestamp`
+  """
+  updatedAt_max: Timestamp_Filter
+}
+"""
+✨ Generated key input type for table 'UserFormInstance'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input UserFormInstance_Key {
+  """
+  ✨ Generated from Field `UserFormInstance`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `UserFormInstance`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'UserFormInstance'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input UserFormInstance_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: UserFormInstance_Filter
+}
+"""
+✨ Generated order input type for table 'UserFormInstance'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input UserFormInstance_Order {
+  """
+  ✨ Generated from Field `UserFormInstance`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `UserFormInstance`.`legalFormTypeId` of type `UUID`
+  """
+  legalFormTypeId: OrderDirection
+  """
+  ✨ Generated from Field `UserFormInstance`.`userId` of type `UUID`
+  """
+  userId: OrderDirection
+  """
+  ✨ Generated from Field `UserFormInstance`.`legalFormType` of type `LegalFormType`
+  """
+  legalFormType: LegalFormType_Order
+  """
+  ✨ Generated from Field `UserFormInstance`.`user` of type `User`
+  """
+  user: User_Order
+  """
+  ✨ Generated from Field `UserFormInstance`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: OrderDirection
+  """
+  ✨ Generated from Field `UserFormInstance`.`dueDate` of type `Timestamp`
+  """
+  dueDate: OrderDirection
+  """
+  ✨ Generated from Field `UserFormInstance`.`fileName` of type `String`
+  """
+  fileName: OrderDirection
+  """
+  ✨ Generated from Field `UserFormInstance`.`formData` of type `String`
+  """
+  formData: OrderDirection
+  """
+  ✨ Generated from Field `UserFormInstance`.`formName` of type `String!`
+  """
+  formName: OrderDirection
+  """
+  ✨ Generated from Field `UserFormInstance`.`status` of type `String!`
+  """
+  status: OrderDirection
+  """
+  ✨ Generated from Field `UserFormInstance`.`submissionDate` of type `Timestamp`
+  """
+  submissionDate: OrderDirection
+  """
+  ✨ Generated from Field `UserFormInstance`.`updatedAt` of type `Timestamp!`
+  """
+  updatedAt: OrderDirection
+}

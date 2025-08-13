@@ -1,0 +1,562 @@
+extend type Mutation {
+  """
+  ✨ Insert a single `FormVersion` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  formVersion_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: FormVersion_Data!
+  ): FormVersion_KeyOutput! @fdc_generated(from: "FormVersion", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `LegalFormType` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  legalFormType_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: LegalFormType_Data!
+  ): LegalFormType_KeyOutput! @fdc_generated(from: "LegalFormType", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Notification` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  notification_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Notification_Data!
+  ): Notification_KeyOutput! @fdc_generated(from: "Notification", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `User` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `UserFormInstance` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  userFormInstance_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: UserFormInstance_Data!
+  ): UserFormInstance_KeyOutput! @fdc_generated(from: "UserFormInstance", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert `FormVersion` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  formVersion_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [FormVersion_Data!]!
+  ): [FormVersion_KeyOutput!]! @fdc_generated(from: "FormVersion", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `LegalFormType` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  legalFormType_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [LegalFormType_Data!]!
+  ): [LegalFormType_KeyOutput!]! @fdc_generated(from: "LegalFormType", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Notification` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  notification_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Notification_Data!]!
+  ): [Notification_KeyOutput!]! @fdc_generated(from: "Notification", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `User` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `UserFormInstance` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  userFormInstance_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [UserFormInstance_Data!]!
+  ): [UserFormInstance_KeyOutput!]! @fdc_generated(from: "UserFormInstance", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert or update a single `FormVersion` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `FormVersion`.
+  """
+  formVersion_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: FormVersion_Data!
+  ): FormVersion_KeyOutput! @fdc_generated(from: "FormVersion", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `LegalFormType` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `LegalFormType`.
+  """
+  legalFormType_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: LegalFormType_Data!
+  ): LegalFormType_KeyOutput! @fdc_generated(from: "LegalFormType", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Notification` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Notification`.
+  """
+  notification_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Notification_Data!
+  ): Notification_KeyOutput! @fdc_generated(from: "Notification", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `User` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `User`.
+  """
+  user_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `UserFormInstance` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UserFormInstance`.
+  """
+  userFormInstance_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: UserFormInstance_Data!
+  ): UserFormInstance_KeyOutput! @fdc_generated(from: "UserFormInstance", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update `FormVersion` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `FormVersion`.
+  """
+  formVersion_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [FormVersion_Data!]!
+  ): [FormVersion_KeyOutput!]! @fdc_generated(from: "FormVersion", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `LegalFormType` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `LegalFormType`.
+  """
+  legalFormType_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [LegalFormType_Data!]!
+  ): [LegalFormType_KeyOutput!]! @fdc_generated(from: "LegalFormType", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Notification` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Notification`.
+  """
+  notification_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Notification_Data!]!
+  ): [Notification_KeyOutput!]! @fdc_generated(from: "Notification", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `User` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `User`.
+  """
+  user_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `UserFormInstance` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UserFormInstance`.
+  """
+  userFormInstance_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [UserFormInstance_Data!]!
+  ): [UserFormInstance_KeyOutput!]! @fdc_generated(from: "UserFormInstance", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Update a single `FormVersion` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `FormVersion` or `null` if not found.
+  """
+  formVersion_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: FormVersion_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: FormVersion_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: FormVersion_Data!
+  ): FormVersion_KeyOutput @fdc_generated(from: "FormVersion", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `LegalFormType` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `LegalFormType` or `null` if not found.
+  """
+  legalFormType_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: LegalFormType_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: LegalFormType_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: LegalFormType_Data!
+  ): LegalFormType_KeyOutput @fdc_generated(from: "LegalFormType", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Notification` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Notification` or `null` if not found.
+  """
+  notification_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Notification_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Notification_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Notification_Data!
+  ): Notification_KeyOutput @fdc_generated(from: "Notification", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `User` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `User` or `null` if not found.
+  """
+  user_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: User_Data!
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `UserFormInstance` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `UserFormInstance` or `null` if not found.
+  """
+  userFormInstance_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: UserFormInstance_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserFormInstance_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: UserFormInstance_Data!
+  ): UserFormInstance_KeyOutput @fdc_generated(from: "UserFormInstance", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update `FormVersion` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  formVersion_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: FormVersion_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: FormVersion_Data!
+  ): Int! @fdc_generated(from: "FormVersion", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `LegalFormType` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  legalFormType_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: LegalFormType_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: LegalFormType_Data!
+  ): Int! @fdc_generated(from: "LegalFormType", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Notification` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  notification_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Notification_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Notification_Data!
+  ): Int! @fdc_generated(from: "Notification", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `User` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  user_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: User_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: User_Data!
+  ): Int! @fdc_generated(from: "User", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `UserFormInstance` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  userFormInstance_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: UserFormInstance_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: UserFormInstance_Data!
+  ): Int! @fdc_generated(from: "UserFormInstance", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Delete a single `FormVersion` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  formVersion_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: FormVersion_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: FormVersion_FirstRow
+  ): FormVersion_KeyOutput @fdc_generated(from: "FormVersion", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `LegalFormType` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  legalFormType_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: LegalFormType_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: LegalFormType_FirstRow
+  ): LegalFormType_KeyOutput @fdc_generated(from: "LegalFormType", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Notification` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  notification_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Notification_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Notification_FirstRow
+  ): Notification_KeyOutput @fdc_generated(from: "Notification", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `User` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  user_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `UserFormInstance` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  userFormInstance_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: UserFormInstance_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserFormInstance_FirstRow
+  ): UserFormInstance_KeyOutput @fdc_generated(from: "UserFormInstance", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete `FormVersion` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  formVersion_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: FormVersion_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "FormVersion", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `LegalFormType` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  legalFormType_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: LegalFormType_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "LegalFormType", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Notification` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  notification_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Notification_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Notification", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `User` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  user_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: User_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "User", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `UserFormInstance` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  userFormInstance_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: UserFormInstance_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance", purpose: DELETE_MULTIPLE)
+}

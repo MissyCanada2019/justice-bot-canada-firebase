@@ -1,0 +1,645 @@
+extend type FormVersion {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "FormVersion", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `FormVersion` table.
+  """
+  _count: Int! @fdc_generated(from: "FormVersion", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `FormVersion` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "FormVersion.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `FormVersion` table where the `formData` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  formData_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "FormVersion.formData", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `FormVersion` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "FormVersion.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `FormVersion` table where the `notes` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  notes_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "FormVersion.notes", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `FormVersion` table where the `statusAtVersion` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  statusAtVersion_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "FormVersion.statusAtVersion", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `FormVersion` table where the `userFormInstanceId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userFormInstanceId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "FormVersion.userFormInstanceId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `FormVersion` table where the `versionNumber` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  versionNumber_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "FormVersion.versionNumber", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `versionNumber` field in the `FormVersion` table.
+  """
+  versionNumber_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "FormVersion.versionNumber", purpose: QUERY_SUM)
+  """
+  ✨ Average the `versionNumber` field in the `FormVersion` table.
+  """
+  versionNumber_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "FormVersion.versionNumber", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `createdAt` field in the `FormVersion` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "FormVersion.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `versionNumber` field in the `FormVersion` table.
+  """
+  versionNumber_min: Int @fdc_generated(from: "FormVersion.versionNumber", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `FormVersion` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "FormVersion.createdAt", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `versionNumber` field in the `FormVersion` table.
+  """
+  versionNumber_max: Int @fdc_generated(from: "FormVersion.versionNumber", purpose: QUERY_MAX)
+}
+extend type LegalFormType {
+  """
+  ✨ List `UserFormInstance` objects in a one-to-many relationship (where `UserFormInstance`.`legalFormType` is this object).
+  """
+  userFormInstances_on_legalFormType(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: UserFormInstance_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [UserFormInstance_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: UserFormInstance_Having
+  ): [UserFormInstance!]! @fdc_generated(from: "UserFormInstance.legalFormType", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "LegalFormType", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `LegalFormType` table.
+  """
+  _count: Int! @fdc_generated(from: "LegalFormType", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `LegalFormType` table where the `category` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  category_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "LegalFormType.category", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `LegalFormType` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "LegalFormType.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `LegalFormType` table where the `description` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  description_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "LegalFormType.description", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `LegalFormType` table where the `formNumber` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  formNumber_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "LegalFormType.formNumber", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `LegalFormType` table where the `guidanceNotes` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  guidanceNotes_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "LegalFormType.guidanceNotes", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `LegalFormType` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "LegalFormType.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `LegalFormType` table where the `jurisdiction` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  jurisdiction_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "LegalFormType.jurisdiction", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `LegalFormType` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "LegalFormType.name", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `LegalFormType` table where the `officialLink` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  officialLink_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "LegalFormType.officialLink", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `LegalFormType` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "LegalFormType.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `LegalFormType` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "LegalFormType.createdAt", purpose: QUERY_MAX)
+}
+extend type Notification {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Notification", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Notification` table.
+  """
+  _count: Int! @fdc_generated(from: "Notification", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `isRead` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  isRead_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.isRead", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `message` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  message_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.message", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `relatedFormInstanceId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  relatedFormInstanceId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.relatedFormInstanceId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `type` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  type_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.type", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Notification` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Notification.userId", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `Notification` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "Notification.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `Notification` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "Notification.createdAt", purpose: QUERY_MAX)
+}
+extend type User {
+  """
+  ✨ List `Notification` objects in a one-to-many relationship (where `Notification`.`user` is this object).
+  """
+  notifications_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Notification_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Notification_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Notification_Having
+  ): [Notification!]! @fdc_generated(from: "Notification.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `UserFormInstance` objects in a one-to-many relationship (where `UserFormInstance`.`user` is this object).
+  """
+  userFormInstances_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: UserFormInstance_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [UserFormInstance_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: UserFormInstance_Having
+  ): [UserFormInstance!]! @fdc_generated(from: "UserFormInstance.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "User", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `User` table.
+  """
+  _count: Int! @fdc_generated(from: "User", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `address` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  address_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.address", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `contactNumber` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  contactNumber_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.contactNumber", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `displayName` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  displayName_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.displayName", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `email` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  email_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.email", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `photoUrl` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  photoUrl_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.photoUrl", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `User` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "User.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `User` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "User.createdAt", purpose: QUERY_MAX)
+}
+extend type UserFormInstance {
+  """
+  ✨ List `FormVersion` objects in a one-to-many relationship (where `FormVersion`.`userFormInstance` is this object).
+  """
+  formVersions_on_userFormInstance(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: FormVersion_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [FormVersion_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: FormVersion_Having
+  ): [FormVersion!]! @fdc_generated(from: "FormVersion.userFormInstance", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "UserFormInstance", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table.
+  """
+  _count: Int! @fdc_generated(from: "UserFormInstance", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table where the `dueDate` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  dueDate_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance.dueDate", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table where the `fileName` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  fileName_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance.fileName", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table where the `formData` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  formData_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance.formData", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table where the `formName` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  formName_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance.formName", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table where the `legalFormTypeId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  legalFormTypeId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance.legalFormTypeId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table where the `status` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  status_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance.status", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table where the `submissionDate` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  submissionDate_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance.submissionDate", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table where the `updatedAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  updatedAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance.updatedAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserFormInstance` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserFormInstance.userId", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `UserFormInstance` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "UserFormInstance.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `dueDate` field in the `UserFormInstance` table.
+  """
+  dueDate_min: Timestamp @fdc_generated(from: "UserFormInstance.dueDate", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `submissionDate` field in the `UserFormInstance` table.
+  """
+  submissionDate_min: Timestamp @fdc_generated(from: "UserFormInstance.submissionDate", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `updatedAt` field in the `UserFormInstance` table.
+  """
+  updatedAt_min: Timestamp @fdc_generated(from: "UserFormInstance.updatedAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `UserFormInstance` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "UserFormInstance.createdAt", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `dueDate` field in the `UserFormInstance` table.
+  """
+  dueDate_max: Timestamp @fdc_generated(from: "UserFormInstance.dueDate", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `submissionDate` field in the `UserFormInstance` table.
+  """
+  submissionDate_max: Timestamp @fdc_generated(from: "UserFormInstance.submissionDate", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `updatedAt` field in the `UserFormInstance` table.
+  """
+  updatedAt_max: Timestamp @fdc_generated(from: "UserFormInstance.updatedAt", purpose: QUERY_MAX)
+}
