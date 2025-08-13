@@ -1,63 +1,53 @@
+// src/components/triage-form.tsx
 "use client";
+import { useState } from "react";
 
-import { useActionState, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE?.replace(/\/+$/,"") || "";
 
-import { handleTriage, type TriageFormState } from '@/lib/actions';
-import { useToast } from '@/hooks/use-toast';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2 } from 'lucide-react';
+export default function TriageForm() {
+  const [issue, setIssue] = useState("");
+  const [out, setOut] = useState<string>("");
 
-const initialState: TriageFormState = {
-  message: null,
-  errors: {},
-};
+  async function handleTriage() {
+    const r = await fetch(`${API_BASE}/assistant/triage`, {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ issue })
+    });
+    const txt = await r.text();
+    setOut(txt);
+  }
 
-export function TriageForm() {
-  const [state, dispatch, isPending] = useActionState(handleTriage, initialState);
-  const formRef = useRef<HTMLFormElement>(null);
-  const { toast } = useToast();
-  const router = useRouter();
-
-  if (state.message && state.message.includes('Triage complete')) {
-     toast({
-        title: "Case Created Successfully!",
-        description: "Redirecting to your dashboard...",
-      });
-    router.push('/dashboard');
+  async function handleMerit() {
+    const r = await fetch(`${API_BASE}/merit/score`, {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        issue,
+        facts: { event_days_ago: 30, notice_given: true, ongoing_issue: true, arrears: 0 },
+        evidence: []
+      })
+    });
+    const txt = await r.text();
+    setOut(txt);
   }
 
   return (
-    <form ref={formRef} action={dispatch} className="space-y-4">
-      <div className="grid w-full gap-1.5">
-        <Label htmlFor="issueDescription">Describe your legal issue</Label>
-        <Textarea
-          id="issueDescription"
-          name="issueDescription"
-          placeholder="For example: My landlord changed the locks on my apartment without notice..."
-          className="min-h-[120px]"
-          required
-        />
-        {state.errors?.issueDescription && (
-           <p className="text-sm text-destructive mt-1">
-            {state.errors.issueDescription[0]}
-          </p>
-        )}
+    <>
+      <textarea
+        className="w-full rounded-lg bg-black/40 border border-white/10 p-3 mb-3"
+        rows={6}
+        placeholder="Describe your issue…"
+        value={issue}
+        onChange={e=>setIssue(e.target.value)}
+      />
+      <div className="flex gap-2 mb-3">
+        <button className="px-4 py-2 rounded-xl bg-red-600" onClick={handleTriage}>Classify &amp; Suggest</button>
+        <button className="px-4 py-2 rounded-xl bg-red-600" onClick={handleMerit}>Merit Score</button>
       </div>
-
-       {state.message && !state.message.includes('Triage complete') &&(
-        <Alert variant="destructive">
-          <AlertDescription>{state.message}</AlertDescription>
-        </Alert>
-      )}
-
-      <Button type="submit" disabled={isPending} className="w-full">
-        {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-        Analyze My Case
-      </Button>
-    </form>
+      <pre className="rounded-lg p-3 bg-black/40 border border-white/10 text-sm whitespace-pre-wrap">{out}</pre>
+    </>
   );
 }

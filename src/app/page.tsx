@@ -1,38 +1,19 @@
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import { Logo } from '@/components/logo';
+// src/app/page.tsx
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <header className="p-4 flex justify-between items-center">
-        <Logo />
-        <Button asChild variant="outline">
-          <Link href="/login">
-            Login
-          </Link>
-        </Button>
-      </header>
-      <main className="flex-grow flex items-center justify-center">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold font-headline mb-4">
-            Navigate Canadian Law with Confidence
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            JusticeBot is your AI-powered legal assistant, designed to help you understand your rights, generate legal documents, and prepare for your case.
-          </p>
-          <Button asChild size="lg">
-            <Link href="/triage">
-              Get Started for Free
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
+    <div className="grid gap-4">
+      <div className="rounded-2xl p-6 bg-zinc-900 border border-white/10">
+        <h1 className="text-2xl font-bold mb-2">Welcome to Smart Dispute</h1>
+        <p className="opacity-80">
+          Manage legal matters, triage issues, and upload evidence securely.
+        </p>
+        <div className="mt-4 flex gap-3">
+          <Link href="/login" className="px-4 py-2 rounded-xl bg-red-600">Login</Link>
+          <Link href="/dashboard" className="px-4 py-2 rounded-xl bg-white/10">Go to Dashboard</Link>
         </div>
-      </main>
-      <footer className="p-4 text-center text-muted-foreground text-sm">
-        © {new Date().getFullYear()} JusticeBot Canada. All rights reserved.
-      </footer>
+      </div>
     </div>
   );
 }
