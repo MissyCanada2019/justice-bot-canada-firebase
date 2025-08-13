@@ -44,6 +44,10 @@
     @apply bg-background text-foreground;
   }
   h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-inter), system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+
     @apply font-headline;
   }
 }
