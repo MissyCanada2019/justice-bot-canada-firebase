@@ -48,6 +48,16 @@
   }
 }
 
+/* Add custom utilities for specific fonts if needed */
+@layer utilities {
+  .font-headline {
+    font-family: var(--font-inter), system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  .font-body {
+    font-family: var(--font-inter), system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+}
+
 @layer components {
     .card {
         @apply bg-zinc-900 border-zinc-800 rounded-lg p-4;
