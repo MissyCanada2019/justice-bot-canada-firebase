@@ -1,35 +1,62 @@
+import { mockCases } from '@/lib/mock-data';
+import Link from 'next/link';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { PlusCircle, Briefcase, Home, Users, Shield, Scale, FileSearch, HeartHandshake } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
-"use client";
-import { useEffect, useState } from "react";
-import { Auth, Cases } from "@/lib/api";
-import { Section } from "@/components/ui/section";
-import Link from "next/link";
+const iconMap: { [key: string]: React.ReactNode } = {
+  'Employment': <Briefcase className="h-5 w-5" />,
+  'Landlord and Tenant': <Home className="h-5 w-5" />,
+  'Family Law': <Users className="h-5 w-5" />,
+  'Small Claims': <FileSearch className="h-5 w-5" />,
+  'Human Rights': <HeartHandshake className="h-5 w-5" />,
+  'Child Protection': <Shield className="h-5 w-5" />,
+  'Other': <Scale className="h-5 w-5" />,
+  'default': <Scale className="h-5 w-5" />,
+};
 
-export default function Dashboard(){
-  const [me,setMe]=useState<any>(null);
-  const [cases,setCases]=useState<any[]>([]);
-  const [title,setTitle]=useState(""); const [issue,setIssue]=useState("");
-  useEffect(()=>{ (async()=>{ try{ setMe(await Auth.me()); setCases((await Cases.list()).cases); } catch{} })(); },[]);
-  async function create(){ await Cases.create(title,issue); setCases((await Cases.list()).cases); }
+
+export default function DashboardPage() {
   return (
     <div className="container mx-auto">
-      <Section title="Your Account">
-        <div className="badge">{me?.email || "Not logged in"}</div>
-      </Section>
-      <Section title="Cases">
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="card">
-            <div className="mb-2">Create a new case</div>
-            <input className="input mb-2" placeholder="Title" value={title} onChange={e=>setTitle(e.target.value)} />
-            <textarea className="input mb-2" rows={3} placeholder="Describe issue…" value={issue} onChange={e=>setIssue(e.target.value)} />
-            <button className="btn" onClick={create}>Create</button>
-          </div>
-          <div className="card">
-            {cases.length===0? <div>No cases yet.</div> :
-              <ul className="space-y-2">{cases.map(c=><li key={c.id} className="card"><Link href={`/case/${c.id}`}><b>{c.title}</b></Link><div className="opacity-70">{c.status}</div></li>)}</ul>}
-          </div>
+        <div className="flex justify-between items-center mb-8">
+            <h1 className="text-3xl font-bold font-headline">Case Management Dashboard</h1>
+            <Button asChild>
+                <Link href="/triage">
+                    <PlusCircle className="mr-2 h-4 w-4" />
+                    New Case
+                </Link>
+            </Button>
         </div>
-      </Section>
+
+        <div className="grid gap-6">
+            {mockCases.map((caseItem) => {
+              const Icon = iconMap[caseItem.triageOutput.issueType] || iconMap.default;
+              return (
+                <Link href={`/case/${caseItem.id}`} key={caseItem.id} className="block">
+                    <Card className="hover:border-primary/50 transition-colors">
+                        <CardHeader>
+                            <div className="flex justify-between items-start">
+                                <div>
+                                    <CardTitle className="text-xl">{caseItem.title}</CardTitle>
+                                    <CardDescription className="mt-1 flex items-center gap-2">
+                                        {Icon}
+                                        {caseItem.triageOutput.issueType}
+                                    </CardDescription>
+                                </div>
+                                <Badge variant={caseItem.status === 'Active' ? 'default' : 'secondary'}>{caseItem.status}</Badge>
+                            </div>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground line-clamp-2">{caseItem.triageOutput.keyFacts}</p>
+                            <p className="text-sm text-muted-foreground/80 mt-4">Last activity: {caseItem.lastActivity}</p>
+                        </CardContent>
+                    </Card>
+                </Link>
+              );
+            })}
+        </div>
     </div>
   );
 }
