@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../src/app/globals.css";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 
