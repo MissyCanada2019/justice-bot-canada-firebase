@@ -9,6 +9,10 @@ export default function TriageForm() {
   const [out, setOut] = useState<string>("");
 
   async function handleTriage() {
+    if (!issue.trim()) {
+      setOut("Please describe your issue before submitting.");
+      return;
+    }
     const r = await fetch(`${API_BASE}/assistant/triage`, {
       method: "POST",
       credentials: "include",
@@ -20,6 +24,10 @@ export default function TriageForm() {
   }
 
   async function handleMerit() {
+    if (!issue.trim()) {
+      setOut("Please describe your issue before submitting.");
+      return;
+    }
     const r = await fetch(`${API_BASE}/merit/score`, {
       method: "POST",
       credentials: "include",
