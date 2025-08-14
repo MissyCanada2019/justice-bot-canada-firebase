@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "justice-bot-canada551055"
-  }
+    "default": "justicebot-canada"
+  },
+  "targets": {},
+  "etags": {}
 }
