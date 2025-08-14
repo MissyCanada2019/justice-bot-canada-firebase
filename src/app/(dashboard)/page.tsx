@@ -1,7 +1,4 @@
-
 // src/app/(dashboard)/page.tsx
-import Link from 'next/link';
-import { mockCases } from '@/lib/mock-data';
 import {
   Card,
   CardContent,
@@ -10,7 +7,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
 
 export default function DashboardPage() {
   return (
@@ -21,40 +18,15 @@ export default function DashboardPage() {
           <Link href="/triage">Start New Triage</Link>
         </Button>
       </div>
-      {mockCases.length === 0 ? (
-        <Card>
-          <CardContent className="pt-6">
-            <p>You have no active cases. Start a new triage to begin.</p>
-          </CardContent>
-        </Card>
-      ) : (
-        <div className="grid gap-4 md:grid-cols-2">
-          {mockCases.map((c) => (
-            <Card key={c.id}>
-              <CardHeader>
-                <div className="flex justify-between items-start">
-                  <CardTitle className="hover:underline text-lg">
-                    <Link href={`/journey/${c.id}`}>{c.title}</Link>
-                  </CardTitle>
-                  <Badge
-                    variant={c.status === 'Active' ? 'default' : 'secondary'}
-                  >
-                    {c.status}
-                  </Badge>
-                </div>
-                <CardDescription>
-                  Last activity: {c.lastActivity}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="line-clamp-2 text-sm text-muted-foreground">
-                  {c.triageOutput.keyFacts}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      )}
+      <Card>
+        <CardHeader>
+          <CardTitle>Welcome to your Dashboard</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>This page is now loading correctly.</p>
+          <p>We can now start adding back functionality piece by piece.</p>
+        </CardContent>
+      </Card>
     </div>
   );
 }
