@@ -1,3 +1,4 @@
+
 // src/lib/mock-data.ts
 import type { Case } from '@/lib/types';
 import { formatDistanceToNow } from 'date-fns';

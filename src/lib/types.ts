@@ -1,3 +1,4 @@
+
 // src/lib/types.ts
 import type { LegalTriageOutput } from "@/ai/flows/legal-triage";
 import type { GenerateLegalJourneyOutput } from "@/ai/flows/generate-legal-journey";

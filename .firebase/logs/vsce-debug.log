@@ -342,3 +342,66 @@ I0814 17:36:46.609165     536 dev.go:95] Listening on address (HTTP + gRPC): 127
 [debug] [2025-08-14T17:37:57.911Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
 [debug] [2025-08-14T17:37:58.430Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
 [debug] [2025-08-14T17:37:58.431Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-08-14T17:42:52.127Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: true
+[debug] [2025-08-14T17:42:52.128Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-08-14T17:42:52.130Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-14T17:42:52.130Z] > authorizing via signed-in user (smartdisputecanada@gmail.com)
+[debug] [2025-08-14T17:42:52.131Z] No OAuth tokens found
+[debug] [2025-08-14T17:42:52.131Z] [Firebase Plugin] User found:  smartdisputecanada@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-08-14T17:42:52.133Z] No OAuth tokens found
+[debug] [2025-08-14T17:42:52.136Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-08-14T17:42:52.178Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: true
+[debug] [2025-08-14T17:42:52.179Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-08-14T17:42:52.180Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-14T17:42:52.180Z] > authorizing via signed-in user (smartdisputecanada@gmail.com)
+[debug] [2025-08-14T17:42:52.183Z] No OAuth tokens found
+[debug] [2025-08-14T17:42:52.184Z] [Firebase Plugin] User found:  smartdisputecanada@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-08-14T17:42:52.185Z] No OAuth tokens found
+[debug] [2025-08-14T17:42:52.186Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-08-14T17:42:52.578Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-08-14T17:42:52.578Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-08-14T17:42:52.585Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-08-14T17:42:52.586Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-08-14T17:44:11.557Z] [Firebase Plugin] Activating Firebase extension.
+[info] [Firebase Plugin] Checked firebase-tools, is up to date!
+[debug] [2025-08-14T17:44:17.340Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-08-14T17:44:17.342Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-14T17:44:17.343Z] > authorizing via signed-in user (smartdisputecanada@gmail.com)
+[debug] [2025-08-14T17:44:17.349Z] No OAuth tokens found
+[debug] [2025-08-14T17:44:17.349Z] No OAuth tokens found
+[debug] [2025-08-14T17:44:17.350Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-14T17:44:17.351Z] > authorizing via signed-in user (smartdisputecanada@gmail.com)
+[debug] [2025-08-14T17:44:17.352Z] [Firebase Plugin] User found:  smartdisputecanada@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-08-14T17:44:17.353Z] No OAuth tokens found
+[debug] [2025-08-14T17:44:17.355Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-08-14T17:44:17.411Z] [Firebase Plugin] VSCode notification server listening on port 40002
+[info] [Firebase Plugin] Starting Data Connect toolkit (version 2.10.1) on port 50002
+[debug] [2025-08-14T17:44:20.165Z] I0814 17:44:20.127051    2684 control.go:84] [/emulator/studio f0ea] UpdateResources(): done
+Schema: sources: schema/schema.gql [928B] 
+Connector "default": sources: 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0814 17:44:20.127051    2684 control.go:84] [/emulator/studio f0ea] UpdateResources(): done\nSchema: sources: schema/schema.gql [928B] \nConnector \"default\": sources: \n"}}
+[debug] [2025-08-14T17:44:20.167Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-08-14T17:44:20.167Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2025-08-14T17:44:20.168Z] Starting Data Connect Emulator with command {"binary":"/home/user/.cache/firebase/emulators/dataconnect-emulator-2.10.1","args":["--logtostderr","-v=2","dev","--listen=localhost:50002","--config_dir=/home/user/studio/dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting Data Connect Emulator with command {\"binary\":\"/home/user/.cache/firebase/emulators/dataconnect-emulator-2.10.1\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50002\",\"--config_dir=/home/user/studio/dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: Data Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"Data Connect Emulator logging to dataconnect-debug.log"}}
+[debug] [2025-08-14T17:44:20.239Z] I0814 17:44:20.230578    2689 load.go:37] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0814 17:44:20.230578    2689 load.go:37] Reloading schema and connectors...\n"}}
+[debug] [2025-08-14T17:44:20.271Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-08-14T17:44:20.272Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-08-14T17:44:20.400Z] I0814 17:44:20.388126    2689 control.go:84] [/emulator/studio 5d67] UpdateResources(): done
+Schema: sources: schema/schema.gql [928B] 
+Connector "default": sources: 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0814 17:44:20.388126    2689 control.go:84] [/emulator/studio 5d67] UpdateResources(): done\nSchema: sources: schema/schema.gql [928B] \nConnector \"default\": sources: \n"}}
+[debug] [2025-08-14T17:44:20.518Z] E0814 17:44:20.518130    2689 load.go:101] Errors generating SDK: [connector "default"]: invalid Data Connect Connector no query found in connector
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0814 17:44:20.518130    2689 load.go:101] Errors generating SDK: [connector \"default\"]: invalid Data Connect Connector no query found in connector\n"}}
+[debug] [2025-08-14T17:44:20.526Z] I0814 17:44:20.521475    2689 collector.go:107] schema extensions wrote into "/home/user/studio/dataconnect/.dataconnect/schema"
+Generated sources: main/implicit.gql [2401B] main/input.gql [47230B] main/relation.gql [24997B] main/query.gql [6570B] main/mutation.gql [17895B] prelude.gql [73172B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0814 17:44:20.521475    2689 collector.go:107] schema extensions wrote into \"/home/user/studio/dataconnect/.dataconnect/schema\"\nGenerated sources: main/implicit.gql [2401B] main/input.gql [47230B] main/relation.gql [24997B] main/query.gql [6570B] main/mutation.gql [17895B] prelude.gql [73172B] \n"}}
+[debug] [2025-08-14T17:44:20.529Z] I0814 17:44:20.525390    2689 load.go:115] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0814 17:44:20.525390    2689 load.go:115] Finished reloading\n"}}
+[debug] [2025-08-14T17:44:20.569Z] I0814 17:44:20.544258    2689 dev.go:95] Listening on address (HTTP + gRPC): 127.0.0.1:50002
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0814 17:44:20.544258    2689 dev.go:95] Listening on address (HTTP + gRPC): 127.0.0.1:50002\n"}}
+[error] [Firebase Plugin] error:  {}
