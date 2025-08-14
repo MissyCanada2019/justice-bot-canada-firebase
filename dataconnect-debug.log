@@ -1,9 +1,9 @@
-I0814 07:32:37.884947    2145 load.go:37] Reloading schema and connectors...
-I0814 07:32:38.078349    2145 control.go:84] [/emulator/studio 4af2] UpdateResources(): done
+I0814 17:36:45.919172     536 load.go:37] Reloading schema and connectors...
+I0814 17:36:46.301585     536 control.go:84] [/emulator/studio 7160] UpdateResources(): done
 Schema: sources: schema/schema.gql [928B] 
 Connector "default": sources: 
-E0814 07:32:38.259139    2145 load.go:101] Errors generating SDK: [connector "default"]: invalid Data Connect Connector no query found in connector
-I0814 07:32:38.264315    2145 collector.go:107] schema extensions wrote into "/home/user/studio/dataconnect/.dataconnect/schema"
-Generated sources: main/implicit.gql [2401B] main/input.gql [47230B] main/relation.gql [24997B] prelude.gql [73172B] main/query.gql [6570B] main/mutation.gql [17895B] 
-I0814 07:32:38.264399    2145 load.go:115] Finished reloading
-I0814 07:32:38.278111    2145 dev.go:95] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+E0814 17:36:46.584006     536 load.go:101] Errors generating SDK: [connector "default"]: invalid Data Connect Connector no query found in connector
+I0814 17:36:46.590915     536 collector.go:107] schema extensions wrote into "/home/user/studio/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [73172B] main/relation.gql [24997B] main/query.gql [6570B] main/mutation.gql [17895B] main/implicit.gql [2401B] main/input.gql [47230B] 
+I0814 17:36:46.593084     536 load.go:115] Finished reloading
+I0814 17:36:46.609165     536 dev.go:95] Listening on address (HTTP + gRPC): 127.0.0.1:50001
