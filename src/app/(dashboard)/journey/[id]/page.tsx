@@ -1,3 +1,4 @@
+
 // src/app/(dashboard)/journey/[id]/page.tsx
 import { notFound } from 'next/navigation';
 import { getCaseById } from '@/lib/mock-data';

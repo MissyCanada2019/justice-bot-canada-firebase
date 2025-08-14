@@ -1,3 +1,4 @@
+
 // src/app/(dashboard)/page.tsx
 import Link from 'next/link';
 import { mockCases } from '@/lib/mock-data';
