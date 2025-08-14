@@ -1,61 +1,54 @@
 // src/components/triage-form.tsx
-"use client";
-import { useState } from "react";
+'use client';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE?.replace(/\/+$/,"") || "";
+import { useFormState, useFormStatus } from 'react-dom';
+import { handleTriage } from '@/lib/actions';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { Alert, AlertDescription, AlertTitle } from './ui/alert';
+import { Terminal } from 'lucide-react';
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" disabled={pending}>
+      {pending ? 'Analyzing...' : 'Start AI Triage'}
+    </Button>
+  );
+}
 
 export default function TriageForm() {
-  const [issue, setIssue] = useState("");
-  const [out, setOut] = useState<string>("");
-
-  async function handleTriage() {
-    if (!issue.trim()) {
-      setOut("Please describe your issue before submitting.");
-      return;
-    }
-    const r = await fetch(`${API_BASE}/assistant/triage`, {
-      method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ issue })
-    });
-    const txt = await r.text();
-    setOut(txt);
-  }
-
-  async function handleMerit() {
-    if (!issue.trim()) {
-      setOut("Please describe your issue before submitting.");
-      return;
-    }
-    const r = await fetch(`${API_BASE}/merit/score`, {
-      method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        issue,
-        facts: { event_days_ago: 30, notice_given: true, ongoing_issue: true, arrears: 0 },
-        evidence: []
-      })
-    });
-    const txt = await r.text();
-    setOut(txt);
-  }
+  const initialState = { message: null, errors: {} };
+  const [state, dispatch] = useFormState(handleTriage, initialState);
 
   return (
-    <>
-      <textarea
-        className="w-full rounded-lg bg-black/40 border border-white/10 p-3 mb-3"
-        rows={6}
-        placeholder="Describe your issue…"
-        value={issue}
-        onChange={e=>setIssue(e.target.value)}
-      />
-      <div className="flex gap-2 mb-3">
-        <button className="px-4 py-2 rounded-xl bg-red-600" onClick={handleTriage}>Classify &amp; Suggest</button>
-        <button className="px-4 py-2 rounded-xl bg-red-600" onClick={handleMerit}>Merit Score</button>
+    <form action={dispatch} className="space-y-4">
+      <div>
+        <Textarea
+          id="issueDescription"
+          name="issueDescription"
+          placeholder="Describe your legal issue in detail. For example: 'My landlord gave me an eviction notice but I have always paid my rent on time...'"
+          rows={8}
+          className="bg-zinc-950"
+          aria-describedby="issue-error"
+        />
+        <div id="issue-error" aria-live="polite" aria-atomic="true">
+          {state.errors?.issueDescription &&
+            state.errors.issueDescription.map((error: string) => (
+              <p key={error} className="mt-2 text-sm text-destructive">
+                {error}
+              </p>
+            ))}
+        </div>
       </div>
-      <pre className="rounded-lg p-3 bg-black/40 border border-white/10 text-sm whitespace-pre-wrap">{out}</pre>
-    </>
+       {state.message && (
+         <Alert variant={state.errors ? 'destructive' : 'default'}>
+            <Terminal className="h-4 w-4" />
+            <AlertTitle>{state.errors ? 'Error' : 'Success'}</AlertTitle>
+            <AlertDescription>{state.message}</AlertDescription>
+         </Alert>
+       )}
+      <SubmitButton />
+    </form>
   );
 }

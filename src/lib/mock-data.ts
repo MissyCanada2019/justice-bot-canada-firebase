@@ -1,3 +1,4 @@
+// src/lib/mock-data.ts
 import type { Case } from '@/lib/types';
 import { formatDistanceToNow } from 'date-fns';
 
@@ -96,20 +97,16 @@ export const mockCases: Case[] = [
   }
 ];
 
-export const getCaseById = (id: string) => {
+export const getCaseById = (id: string): Case | undefined => {
     const caseItem = mockCases.find(c => c.id === id);
-    if (caseItem && caseItem.lastActivity) {
-        // if it's an ISO string, format it
-        if (new Date(caseItem.lastActivity).getTime() > 0) {
-            caseItem.lastActivity = formatDistanceToNow(new Date(caseItem.lastActivity), { addSuffix: true });
-        }
-    }
-    return caseItem;
+    if (!caseItem) return undefined;
+    // This function can be expanded to format other data as needed
+    return { ...caseItem };
 }
 
 export const addCase = (newCase: Case) => {
-    // Prepend to the beginning of the array
+    // Prepend to the beginning of the array for chronological order on dashboard
     mockCases.unshift(newCase);
 }
 
-export const getCaseCount = async () => mockCases.length;
+export const getCaseCount = async (): Promise<number> => mockCases.length;

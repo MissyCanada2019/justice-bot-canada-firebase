@@ -1,3 +1,4 @@
+// src/lib/actions.ts
 'use server';
 
 import { legalTriage, type LegalTriageOutput } from '@/ai/flows/legal-triage';
@@ -33,11 +34,15 @@ export async function handleTriage(prevState: TriageFormState, formData: FormDat
     };
   }
   
+  let newCaseId;
+
   try {
     const triageResult = await legalTriage({ issueDescription: validatedFields.data.issueDescription });
     const journeyResult = await generateLegalJourney({ triageOutput: triageResult });
-
-    const newCaseId = (await getCaseCount() + 1).toString();
+    
+    // In a real app, this would be an atomic database transaction
+    const currentCaseCount = await getCaseCount();
+    newCaseId = (currentCaseCount + 1).toString();
 
     addCase({
       id: newCaseId,
@@ -50,14 +55,11 @@ export async function handleTriage(prevState: TriageFormState, formData: FormDat
       forms: [], // In a real app, you might generate forms too
     });
 
-    // In a real app, you would save this to a database and create a new case.
-    // Here we just return the data to the client component.
-    // return { message: 'Triage complete.', data: { triage: triageResult, journey: journeyResult }, errors: {} };
   } catch (error) {
     console.error('Triage Error:', error);
     return { message: 'An error occurred during triage. Please try again.', data: null, errors: {}};
   }
 
-  // Redirect to the dashboard after successful submission
-  redirect('/dashboard');
+  // Redirect to the new journey page on success
+  redirect(`/journey/${newCaseId}`);
 }
