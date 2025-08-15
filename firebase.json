@@ -8,6 +8,26 @@
     ],
     "frameworksBackend": {
       "region": "us-central1"
-    }
+    },
+    "rewrites": [
+      {
+        "source": "/assistant{,/**}",
+        "backend": {
+          "region": "us-central1"
+        }
+      },
+      {
+        "source": "/merit{,/**}",
+        "backend": {
+          "region": "us-central1"
+        }
+      },
+      {
+        "source": "/journey{,/**}",
+        "backend": {
+          "region": "us-central1"
+        }
+      }
+    ]
   }
 }
