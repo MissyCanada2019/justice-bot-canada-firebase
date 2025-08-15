@@ -1,15 +1,16 @@
 connectorId: default
-generate:
-  javascriptSdk:
-    outputDir: ../../dataconnect-generated/js/default-connector
-    package: "@firebasegen/default-connector"
-    packageJsonDir: ../..
-    react: true
 queries:
   - query: |
       query ListUsers {
         users {
           displayName
           email
+        }
+      }
+  - query: |
+      query ListLegalFormTypes {
+        legalFormTypes {
+          name
+          formNumber
         }
       }
