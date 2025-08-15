@@ -5,3 +5,11 @@ generate:
     package: "@firebasegen/default-connector"
     packageJsonDir: ../..
     react: true
+queries:
+  - query: |
+      query ListUsers {
+        users {
+          displayName
+          email
+        }
+      }
