@@ -5,7 +5,12 @@ import { FormsApi } from "@/lib/api";
 import { Section } from "@/components/ui/section";
 
 export default function FormsPage(){
-  const [issue,setIssue]=useState(""); const [out,setOut]=useState<any>(null);
+  const [issue,setIssue]=useState(""); interface Recommendation {
+  recommended: string;
+  prefill: Record<string, string>;
+}
+
+const [out,setOut]=useState<Recommendation|null>(null);
   async function recommend(){ setOut(await FormsApi.recommend(issue||undefined)); }
   return (
     <div className="container mx-auto">

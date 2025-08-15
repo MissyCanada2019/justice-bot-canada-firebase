@@ -5,7 +5,13 @@ import { Section } from "@/components/ui/section";
 
 export default function EvidencePage(){
   const [caseId,setCaseId]=useState<number>(0);
-  const [docs,setDocs]=useState<any[]>([]);
+  interface Document {
+  id: number;
+  filename: string;
+  type: string;
+}
+
+const [docs,setDocs]=useState<Document[]>([]);
 
   async function refresh(){ if(caseId) setDocs((await Evidence.list(caseId)).docs); }
 
