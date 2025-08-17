@@ -30,25 +30,12 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# env files (can opt-in for committing if needed)
+.env*
+
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-.genkit/*
-.env*
-
-# firebase
-firebase-debug.log
-firestore-debug.log# Global ignores
-node_modules/
-**/node_modules/
-.next/
-**/.next/
-dist/
-**/dist/
-.env
-.env.local
-**/*.env
