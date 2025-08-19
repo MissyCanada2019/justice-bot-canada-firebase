@@ -1,0 +1,25 @@
+query ListLegalMatters @auth(level: USER) {
+  legalMatters {
+    id
+    title
+    description
+    status
+  }
+}
+
+mutation CreateLegalMatter($title: String!, $description: String, $status: String!) @auth(level: USER) {
+  legalMatter_insert(data: {title: $title, description: $description, status: $status, userId_expr: "auth.uid"})
+}
+
+query GetCourtForms @auth(level: PUBLIC) {
+  courtForms {
+    id
+    name
+    description
+    downloadUrl
+  }
+}
+
+mutation CreateUser($displayName: String!, $email: String!, $municipalityId: UUID!, $provinceId: UUID!) @auth(level: USER) {
+  user_insert(data: {displayName: $displayName, email: $email, municipalityId: $municipalityId, provinceId: $provinceId})
+}
