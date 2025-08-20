@@ -11,7 +11,7 @@
   # Sets environment variables in the workspace
   env = {};
   # This adds a file watcher to startup the firebase emulators. The emulators will only start if
-  # a firebase.json file is written into the user's directory
+  # a  file is written into the user's directory
   services.firebase.emulators = {
     # Disabling because we are using prod backends right now
     detect = false;

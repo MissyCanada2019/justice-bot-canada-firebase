@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 connectorId: operations
 generate:
   javascriptSdk:
@@ -5,3 +6,21 @@ generate:
     package: "@firebasegen/operations-connector"
     packageJsonDir: ..\..
     react: true
+=======
+connectorId: default
+queries:
+  - query: |
+      query ListUsers {
+        users {
+          displayName
+          email
+        }
+      }
+  - query: |
+      query ListLegalFormTypes {
+        legalFormTypes {
+          name
+          formNumber
+        }
+      }
+>>>>>>> 19c37061be9760913d59a20246ae6fc268479e3a

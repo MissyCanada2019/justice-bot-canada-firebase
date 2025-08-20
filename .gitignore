@@ -42,4 +42,13 @@ next-env.d.ts
 
 # firebase
 firebase-debug.log
-firestore-debug.log
+firestore-debug.log# Global ignores
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+dist/
+**/dist/
+.env
+.env.local
+**/*.env
