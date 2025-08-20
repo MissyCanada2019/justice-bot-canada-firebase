@@ -1,5 +1,5 @@
-# Use Railway's function-bun image
-FROM ghcr.io/railwayapp/function-bun:1.2.16
+# Use Railway's function-bun image with specific tag
+FROM ghcr.io/railwayapp/function-bun:sha-d7c1797214ad035fac08d556e9741a4ded95c15d
 
 # Set working directory
 WORKDIR /app
