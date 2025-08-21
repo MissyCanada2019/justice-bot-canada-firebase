@@ -8,8 +8,12 @@
  */
 
 import {setGlobalOptions} from "firebase-functions";
-import {onRequest} from "firebase-functions/https";
-import * as logger from "firebase-functions/logger";
+
+// Import our custom functions
+import { legalTriageFlow } from "./legal-triage-flow";
+import { documentAutomationFlow } from "./document-automation";
+import { courtFormGenerationFlow } from "./court-form-generation";
+import { onCallGenkit } from "firebase-functions/https";
 
 // Start writing functions
 // https://firebase.google.com/docs/functions/typescript
@@ -26,7 +30,11 @@ import * as logger from "firebase-functions/logger";
 // this will be the maximum concurrent request count.
 setGlobalOptions({ maxInstances: 10 });
 
-// export const helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+// Export the legal triage flow function
+export const legalTriage = onCallGenkit(legalTriageFlow);
+
+// Export the document automation function
+export const documentAutomation = onCallGenkit(documentAutomationFlow);
+
+// Export the court form generation function
+export const courtFormGeneration = onCallGenkit(courtFormGenerationFlow);

@@ -8,8 +8,21 @@
     ],
     "frameworksBackend": {
       "region": "us-central1"
-<<<<<<< HEAD
-    }
+    },
+    "rewrites": [
+      {
+        "source": "/assistant{,/**}",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/merit{,/**}",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/journey{,/**}",
+        "destination": "/index.html"
+      }
+    ]
   },
   "emulators": {
     "dataconnect": {
@@ -99,28 +112,5 @@
   "extensions": {},
   "database": {
     "rules": "database.rules.json"
-=======
-    },
-    "rewrites": [
-      {
-        "source": "/assistant{,/**}",
-        "backend": {
-          "region": "us-central1"
-        }
-      },
-      {
-        "source": "/merit{,/**}",
-        "backend": {
-          "region": "us-central1"
-        }
-      },
-      {
-        "source": "/journey{,/**}",
-        "backend": {
-          "region": "us-central1"
-        }
-      }
-    ]
->>>>>>> 19c37061be9760913d59a20246ae6fc268479e3a
   }
 }
