@@ -1,6 +1,6 @@
 import os
 import logging
-from flask import Flask, jsonify
+from flask import Flask
 from utils.db import db
 from routes.assistant_routes import assistant_bp
 from routes.merit_routes import merit_bp
@@ -86,7 +86,7 @@ def create_app(config_name: str | None = None) -> Flask:
         # Instead of raising the exception, we can return a 500 error
         @app.errorhandler(500)
         def internal_server_error(error):
-            return jsonify(error="Internal Server Error", message=str(e)), 500
+            return {"error": "Internal Server Error", "message": str(e)}, 500
     
     # Health check endpoint
     @app.route('/health')
@@ -103,4 +103,5 @@ if __name__ == "__main__":
         app.run(debug=debug_mode, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
     except Exception as e:
         print(f"Failed to start application: {e}")
+
         raise
