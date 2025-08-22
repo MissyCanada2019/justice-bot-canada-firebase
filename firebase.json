@@ -6,21 +6,40 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "predeploy": [
+      "npm run build"
+    ],
     "frameworksBackend": {
       "region": "us-central1"
     },
     "rewrites": [
       {
         "source": "/assistant{,/**}",
-        "destination": "/index.html"
+        "run": {
+          "serviceId": "justice-firebase-backend",
+          "region": "us-central1"
+        }
       },
       {
         "source": "/merit{,/**}",
-        "destination": "/index.html"
+        "run": {
+          "serviceId": "justice-firebase-backend",
+          "region": "us-central1"
+        }
       },
       {
         "source": "/journey{,/**}",
-        "destination": "/index.html"
+        "run": {
+          "serviceId": "justice-firebase-backend",
+          "region": "us-central1"
+        }
+      },
+      {
+        "source": "/health",
+        "run": {
+          "serviceId": "justice-firebase-backend",
+          "region": "us-central1"
+        }
       }
     ]
   },
