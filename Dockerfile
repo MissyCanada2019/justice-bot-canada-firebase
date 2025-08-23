@@ -13,8 +13,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code to the working directory
 COPY . .
 
+# Make the startup script executable
+RUN chmod +x startup.sh
+
 # Make port available to the world outside this container
 EXPOSE $PORT
 
-# Run app.py when the container launches
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:$PORT app:create_app()"]
+# Run the startup script when the container launches
+CMD ["./startup.sh"]
