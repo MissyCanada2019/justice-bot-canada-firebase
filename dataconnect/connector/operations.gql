@@ -11,7 +11,7 @@ mutation CreateLegalMatter($title: String!, $description: String, $status: Strin
   legalMatter_insert(data: {title: $title, description: $description, status: $status, userId_expr: "auth.uid"})
 }
 
-query GetCourtForms @auth(level: PUBLIC, reason: "Court forms are public information") {
+query GetCourtForms @auth(level: USER) {
   courtForms {
     id
     name
