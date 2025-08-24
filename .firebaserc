@@ -3,5 +3,9 @@
     "default": "justicebotai"
   },
   "targets": {},
-  "etags": {}
+  "etags": {
+    "justicebotai": {
+      "extensionInstances": {}
+    }
+  }
 }

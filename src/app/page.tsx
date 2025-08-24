@@ -11,8 +11,8 @@ export default function HomePage() {
           Manage legal matters, triage issues, and upload evidence securely.
         </p>
         <div className="mt-4 flex gap-3">
-          <Link href="/login" className="px-4 py-2 rounded-xl bg-red-600">Login</Link>
-          <Link href="/dashboard" className="px-4 py-2 rounded-xl bg-white/10">Go to Dashboard</Link>
+                    <Link href="/signup" className="px-4 py-2 rounded-xl bg-red-600">Create Account</Link>
+          <Link href="/login" className="px-4 py-2 rounded-xl bg-white/10">Login</Link>
         </div>
       </div>
     </div>
