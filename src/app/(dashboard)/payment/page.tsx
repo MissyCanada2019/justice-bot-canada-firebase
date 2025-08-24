@@ -9,17 +9,29 @@ export default function PaymentPage() {
       <CardHeader>
         <CardTitle>Payment Instructions</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          <p>To proceed with your case, please send an Interac e-Transfer to the following email address:</p>
-          <p className="font-bold text-lg">admin@smartdisputecanada.com</p>
-          <p>Please include your case reference number in the e-transfer message. If you do not have a case reference number, please use your full name.</p>
-          <p>Once we receive your payment, we will begin working on your case.</p>
-          <div className="flex justify-end">
-            <Link href="/journey">
-                <Button>Back to Journey</Button>
-            </Link>
-          </div>
+      <CardContent className="space-y-6">
+        <div className="space-y-2">
+          <h2 className="text-xl font-semibold">Interac e-Transfer</h2>
+          <p>Please send your payment to the following email address:</p>
+          <p className="font-bold text-lg text-red-500">admin@justice-bot.com</p>
+          <p className="text-sm text-zinc-400">
+            Please include your case reference number in the e-transfer message.
+            Once we receive your payment, we will begin working on your case.
+          </p>
+        </div>
+        <div className="border-t border-zinc-700"></div>
+        <div className="space-y-2">
+          <h2 className="text-xl font-semibold">PayPal</h2>
+          <p>You can also pay securely using PayPal.</p>
+          {/* TODO: Add your PayPal link or integration here */}
+          <Button className="bg-blue-600 hover:bg-blue-700">
+            Pay with PayPal
+          </Button>
+        </div>
+        <div className="flex justify-end pt-4">
+          <Link href="/journey">
+              <Button variant="outline">Back to Journey</Button>
+          </Link>
         </div>
       </CardContent>
     </Card>

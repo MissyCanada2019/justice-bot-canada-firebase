@@ -14,32 +14,8 @@
     },
     "rewrites": [
       {
-        "source": "/assistant{,/**}",
-        "run": {
-          "serviceId": "justice-firebase-backend",
-          "region": "us-central1"
-        }
-      },
-      {
-        "source": "/merit{,/**}",
-        "run": {
-          "serviceId": "justice-firebase-backend",
-          "region": "us-central1"
-        }
-      },
-      {
-        "source": "/journey{,/**}",
-        "run": {
-          "serviceId": "justice-firebase-backend",
-          "region": "us-central1"
-        }
-      },
-      {
-        "source": "/health",
-        "run": {
-          "serviceId": "justice-firebase-backend",
-          "region": "us-central1"
-        }
+        "source": "**",
+        "function": "ssrjusticebotai"
       }
     ]
   },
