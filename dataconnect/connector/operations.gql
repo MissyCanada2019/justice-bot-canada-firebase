@@ -11,8 +11,8 @@ mutation CreateLegalMatter($title: String!, $description: String, $status: Strin
   legalMatter_insert(data: {title: $title, description: $description, status: $status, userId_expr: "auth.uid"})
 }
 
-query GetCourtForms @auth(level: USER) {
-  courtForms {
+query GetCourtForms($provinceId: UUID!, $municipalityId: UUID!, $category: String!) @auth(level: USER) {
+  courtForms(where: { province: { id: { eq: $provinceId } }, municipality: { id: { eq: $municipalityId } }, category: { eq: $category } }) {
     id
     name
     description
