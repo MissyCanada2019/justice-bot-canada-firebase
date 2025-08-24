@@ -1,24 +1,31 @@
 {
-  "hosting": {
-    "source": ".",
-    "ignore": [
-      "",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "predeploy": [
-      "npm run build"
-    ],
-    "frameworksBackend": {
-      "region": "us-central1"
+  "hosting": [
+    {
+      "site": "justice-bot-canada551055",
+      "public": ".firebase/justice-bot-canada551055/hosting",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "function": "ssrjusticebotai"
+        }
+      ]
     },
-    "rewrites": [
-      {
-        "source": "**",
-        "function": "ssrjusticebotai"
-      }
-    ]
-  },
+    {
+      "site": "justice-bot-com",
+      "public": ".firebase/justice-bot-canada551055/hosting",
+      "rewrites": [
+        {
+          "source": "**",
+          "function": "ssrjusticebotai"
+        }
+      ]
+    }
+  ],
   "emulators": {
     "dataconnect": {
       "dataDir": "dataconnect/.dataconnect/pgliteData",
@@ -82,8 +89,15 @@
         ".git",
         "firebase-debug.log",
         "firebase-debug.*.log",
-        "*.local"
+        "*.local",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        ".runtimeconfig.json"
       ]
+    },
+    {
+      "source": ".firebase\\justice-bot-canada551055\\functions",
+      "codebase": "firebase-frameworks-justice-bot-canada551055"
     }
   ],
   "apphosting": {
@@ -95,11 +109,15 @@
       "firebase-debug.log",
       "firebase-debug.*.log",
       "functions"
-    ]
+    ],
+    "alwaysDeployFromSource": true
   },
-  "storage": {
-    "rules": "storage.rules"
-  },
+  "storage": [
+    {
+      "rules": "storage.rules",
+      "bucket": "justice-bot-canada551055.firebasestorage.app"
+    }
+  ],
   "remoteconfig": {
     "template": "remoteconfig.template.json"
   },

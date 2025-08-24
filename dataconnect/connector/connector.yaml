@@ -1,16 +1,7 @@
-connectorId: default
-queries:
-  - query: |
-      query ListUsers {
-        users {
-          displayName
-          email
-        }
-      }
-  - query: |
-      query ListLegalFormTypes {
-        legalFormTypes {
-          name
-          formNumber
-        }
-      }
+connectorId: operations
+generate:
+  javascriptSdk:
+    outputDir: ..\..\dataconnect-generated\js\operations-connector
+    package: "@firebasegen/operations-connector"
+    packageJsonDir: ..\..
+    react: true

@@ -1,0 +1,3 @@
+# Ignore compiled output and dependencies
+/lib
+/node_modules

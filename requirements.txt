@@ -1,6 +1,5 @@
 flask
 flask_login
 Flask-SQLAlchemy
-pg8000
 gunicorn
 psycopg2-binary

@@ -1,11 +1,25 @@
 {
   "projects": {
-    "default": "justicebotai"
+    "default": "justice-bot-canada551055"
   },
-  "targets": {},
+  "targets": {
+    "justice-bot-canada551055": {
+      "hosting": {
+        "app": [
+          "justice-bot-canada551055"
+        ]
+      }
+    }
+  },
   "etags": {
     "justicebotai": {
       "extensionInstances": {}
+    },
+    "justice-bot-canada551055": {
+      "extensionInstances": {}
     }
+  },
+  "sites": {
+    "justice-bot-com": "justice-bot-canada551055"
   }
 }

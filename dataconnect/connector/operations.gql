@@ -1,5 +1,5 @@
 query ListLegalMatters @auth(level: USER) {
-  legalMatters(where: { user: { id: { eq_expr: "auth.uid" } } }) {
+  legalMatters {
     id
     title
     description
@@ -11,8 +11,8 @@ mutation CreateLegalMatter($title: String!, $description: String, $status: Strin
   legalMatter_insert(data: {title: $title, description: $description, status: $status, userId_expr: "auth.uid"})
 }
 
-query GetCourtForms($provinceId: UUID!, $municipalityId: UUID!, $category: String!) @auth(level: USER) {
-  courtForms(where: { province: { id: { eq: $provinceId } }, municipality: { id: { eq: $municipalityId } }, category: { eq: $category } }) {
+query GetCourtForms @auth(level: PUBLIC) {
+  courtForms {
     id
     name
     description
@@ -21,5 +21,5 @@ query GetCourtForms($provinceId: UUID!, $municipalityId: UUID!, $category: Strin
 }
 
 mutation CreateUser($displayName: String!, $email: String!, $municipalityId: UUID!, $provinceId: UUID!) @auth(level: USER) {
-  user_insert(data: {id_expr: "auth.uid", displayName: $displayName, email: $email, municipalityId: $municipalityId, provinceId: $provinceId})
+  user_insert(data: {displayName: $displayName, email: $email, municipalityId: $municipalityId, provinceId: $provinceId})
 }

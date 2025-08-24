@@ -8,4 +8,5 @@ schema:
       database: "justice-bot-canada551055-database"
       cloudSql:
         instanceId: "studio-001"
+      # schemaValidation: "COMPATIBLE"
 connectorDirs: ["./connector"]
